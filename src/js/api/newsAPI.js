@@ -4,7 +4,7 @@ const host = 'https://newsapi.org/v1/';
 const apiKey = '213327409d384371851777e7c7f78dfe';
 
 class Api{
-  getHeadlines(source, sortBy, callback) {
+  getArticles(source, sortBy, callback) {
     const opts = {
       uri: `${host}articles`,
       qs: {
@@ -40,6 +40,7 @@ class Api{
     }
     rp(opts)
       .then((data) => {
+        console.log(data.articles);
         return callback(data.sources);
       })
       .catch((error) => {

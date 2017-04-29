@@ -2,34 +2,30 @@ import React from 'react';
 
 import newsStore from '../store/newsStore';
 import * as newsActions from '../actions/newsActions';
-import Dropdownitem from './Dropdownitem';
+// import Dropdownitem from './Dropdownitem';
 
-export default class Sources extends React.Component{
+export default class Articles extends React.Component{
   constructor(props) {
     super();
-    this.getSources = this.getSources.bind(this);
+    this.getArticles = this.getArticles.bind(this);
     this.state = {
-      sources: newsStore.fetchSources(),
+      articles: newsStore.fetchArticles(),
     }
   }
 
   componentWillMount() {
-    newsStore.on('sourcesChanged', this.getSources);
-    this.reloadSources();
+    newsStore.on('articlesChanged', this.getArticles);
+    this.reloadArticles();
   }
 
   componentWillUnmount() {
-    newsStore.removeListener('sourcesChanged', this.getSources);
+    newsStore.removeListener('articlesChanged', this.getArticles);
   }
 
-  getSources() {
+  getArticles() {
     this.setState({
-      sources: newsStore.fetchSources(),
+      articles: newsStore.fetchArticles(),
     })
-  }
-
-  reloadSources() {
-    newsActions.getSources();
   }
 
   reloadArticles() {
@@ -39,8 +35,8 @@ export default class Sources extends React.Component{
   }
 
   render() {
-    const { sources } = this.state;
-    const sourceComponents = sources.map(source => {
+    const { articles } = this.state;
+    const articleComponents = articles.map(article => {
       return <Dropdownitem value={source.id} key={source.id} text={source.name}/>;
     });
     

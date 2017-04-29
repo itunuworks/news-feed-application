@@ -15,7 +15,7 @@ export default class Sources extends React.Component{
 
   componentWillMount() {
     newsStore.on('sourcesChanged', this.getSources);
-    this.reloadSources.bind(this);
+    this.reloadSources();
   }
 
 

@@ -1,6 +1,8 @@
 import { EventEmitter } from 'events';
 import dispatcher from '../dispatcher';
 
+console.log('I am in the store');
+
 class NewsStore extends EventEmitter {
   constructor() {
     super();
@@ -26,7 +28,19 @@ class NewsStore extends EventEmitter {
         "urlsToLogos":
           {"small":"","medium":"","large":""},
         "sortBysAvailable":["top"]
-      }
+      },
+      {
+        "id":"al-jazeera-english",
+        "name":"Al Jazeera English",
+        "description":"News, analysis from the Middle East and worldwide, multimedia and interactives, opinions, documentaries, podcasts, long reads and broadcast schedule.",
+        "url":"http://www.aljazeera.com",
+        "category":"general",
+        "language":"en",
+        "country":"us",
+        "urlsToLogos":
+          {"small":"","medium":"","large":""},
+        "sortBysAvailable":["top","latest"]
+      }      
     ];
   }
 
@@ -47,6 +61,7 @@ class NewsStore extends EventEmitter {
       }
       case 'GET_SOURCES': {
         this.sources = action.data;
+        console.log(this.sources);
         this.emit('sourcesChanged');
         break;
       }

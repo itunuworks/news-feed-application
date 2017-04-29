@@ -1,7 +1,7 @@
 import React from 'react';
 
 import newsStore from '../store/newsStore';
-
+import * as newsActions from '../actions/newsActions';
 import Dropdownitem from './Dropdownitem';
 
 export default class Sources extends React.Component{
@@ -15,6 +15,12 @@ export default class Sources extends React.Component{
 
   componentWillMount() {
     newsStore.on('sourcesChanged', this.getSources);
+    this.reloadSources.bind(this);
+  }
+
+
+  componentWillUnmount() {
+    newsStore.removeListener('sourcesChanged', this.getSources);
   }
 
   getSources() {
@@ -23,18 +29,28 @@ export default class Sources extends React.Component{
     })
   }
 
+  reloadSources() {
+    newsActions.getSources();
+  }
+
+  reloadHeadlines() {
+    const selector = document.getElementById('selector');
+    console.log(selector.options[selector.selectedIndex].value);
+    newsActions.getHeadlines(selector.options[selector.selectedIndex].value); 
+  }
+
   render() {
     const { sources } = this.state;
     const sourceComponents = sources.map(source => {
-      return <Dropdownitem value={source.name} key={source.id}/>;
+      return <Dropdownitem value={source.id} key={source.id} text={source.name}/>;
     });
     
     return (
       <div>
-        <h1>Hello Everyone, I am a news apps.</h1>
+        <h1>Hi, I am the sources DropdownBox.</h1>
         <div>
           Select Source 
-          <select>
+          <select id="selector" onChange={this.reloadHeadlines.bind(this)}>
             {sourceComponents}
           </select>
         </div>

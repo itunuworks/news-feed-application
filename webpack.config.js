@@ -16,12 +16,21 @@ module.exports = {
           presets: ['react', 'es2015', 'stage-0'],
           plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
         }
+      },
+      { 
+        test: /\.json$/, loader: 'json-loader' 
       }
     ]
   },
   output: {
     path: __dirname + "/src/",
     filename: "client.min.js"
+  },
+  node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),

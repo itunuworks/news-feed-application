@@ -8,10 +8,10 @@ export default class DropdownItem extends React.Component{
   }
 
   render() {
-    const { value } = this.props;
+    const { value, text} = this.props;
 
     return (
-      <option value={value}>{value}</option>
+      <option value={value}>{text}</option>
     );
   }
 }

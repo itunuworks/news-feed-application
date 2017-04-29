@@ -1,49 +1,53 @@
 import { EventEmitter } from 'events';
 import dispatcher from '../dispatcher';
-import fetch from 'fetch';
-
-const host = 'https://newsapi.org/v1/';
-const apiKey = '213327409d384371851777e7c7f78dfe';
 
 class NewsStore extends EventEmitter {
   constructor() {
     super();
-    this.fetchSources();
-    this.fetchHeadlines(this.sources[0], 'latest');
+    this.headlines = [
+      {
+        "author":"Connie Loizos",
+        "title":"Investor Chris Sacca is retiring from venture capital",
+        "description":"Chris Sacca, a former Google lawyer who rose to fame by betting heavily on Twitter and Uber, says he's \"hanging up his spurs,\" and getting out of the..",
+        "url":"https://techcrunch.com/2017/04/26/investor-chris-sacca-is-retiring-from-venture-capital/",
+        "urlToImage":"https://tctechcrunch2011.files.wordpress.com/2015/12/chris-sacca.jpg?w=764&h=400&crop=1",
+        "publishedAt":"2017-04-26T15:06:23Z"
+      }
+    ];
+    this.sources = [
+      {
+        "id":"abc-news-au",
+        "name":"ABC News (AU)",
+        "description":"Australia's most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.",
+        "url":"http://www.abc.net.au/news",
+        "category":"general",
+        "language":"en",
+        "country":"au",
+        "urlsToLogos":
+          {"small":"","medium":"","large":""},
+        "sortBysAvailable":["top"]
+      }
+    ];
   }
 
-  fetchHeadlines(source, sortBy) {
-    fetch.get(`${host}articles?source=${source}&apiKey=${apiKey}&sortBy=${sortBy}`)
-      .then(res => res.json())
-      .then((data) => {
-        this.headlines = data.articles;
-        this.emit('headlinesChanged');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  fetchHeadlines() {
+    return this.headlines;
   }
 
   fetchSources() {
-    fetch.get(`${host}sources`)
-      .then(res => res.json())
-      .then((data) => {
-        this.sources = data.articles;
-        this.emit('sourcesChanged');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    return this.sources; 
   }
 
   implementActions(action) {
     switch(action.type) {
       case 'GET_HEADLINES': {
-        this.fetchHeadlines(action.source, action.sortBy);
+        this.headlines = action.data;
+        this.emit('headlinesChanged');
         break;
       }
       case 'GET_SOURCES': {
-        this.fetchSources();
+        this.sources = action.data;
+        this.emit('sourcesChanged');
         break;
       }
     }

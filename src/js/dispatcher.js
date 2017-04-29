@@ -1,3 +1,3 @@
 import { Dispatcher } from 'flux';
 
-export default new Dispender;
+export default new Dispatcher;

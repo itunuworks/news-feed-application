@@ -9,7 +9,7 @@ class NewsStore extends EventEmitter {
   }
 
   fetchArticles() {
-    return this.headlines;
+    return this.articles;
   }
 
   fetchSources() {

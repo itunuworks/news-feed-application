@@ -1,5 +1,6 @@
 import React from 'react';
 import Sources from '../components/Sources';
+import Articles from '../components/Articles';
 
 export default class Layout extends React.Component{
   constructor() {
@@ -12,6 +13,7 @@ export default class Layout extends React.Component{
       <div>
         <h1>Hello Everyone, I am a news apps.</h1>
         <Sources/>
+        <Articles/>
       </div>
     );
   }

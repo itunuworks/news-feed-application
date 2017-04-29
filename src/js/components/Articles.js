@@ -2,11 +2,12 @@ import React from 'react';
 
 import newsStore from '../store/newsStore';
 import * as newsActions from '../actions/newsActions';
-// import Dropdownitem from './Dropdownitem';
+import NewsItem from './NewsItem';
 
 export default class Articles extends React.Component{
   constructor(props) {
     super();
+    console.log(this.state);
     this.getArticles = this.getArticles.bind(this);
     this.state = {
       articles: newsStore.fetchArticles(),
@@ -15,7 +16,6 @@ export default class Articles extends React.Component{
 
   componentWillMount() {
     newsStore.on('articlesChanged', this.getArticles);
-    this.reloadArticles();
   }
 
   componentWillUnmount() {
@@ -28,27 +28,19 @@ export default class Articles extends React.Component{
     })
   }
 
-  reloadArticles() {
-    const selector = document.getElementById('selector');
-    console.log(selector.options[selector.selectedIndex].value);
-    newsActions.getArticles(selector.options[selector.selectedIndex].value); 
-  }
-
   render() {
     const { articles } = this.state;
     const articleComponents = articles.map(article => {
-      return <Dropdownitem value={source.id} key={source.id} text={source.name}/>;
+      return <NewsItem author={article.author} title={article.title} description={article.description} url={article.url} urlToImage={article.urlToImage} publishedAt={article.publishedAt} key={article.url}/>;
     });
-    
+    console.log('I am done here');
+    console.log(articleComponents);
     return (
       <div>
-        <h1>Hi, I am the sources DropdownBox.</h1>
-        <div>
-          Select Source 
-          <select id="selector" onChange={this.reloadArticles.bind(this)}>
-            {sourceComponents}
-          </select>
-        </div>
+        <ul>
+          <li><b>My list of articles goes up in here.</b></li>
+          {articleComponents}
+        </ul>
       </div>
     );
   }

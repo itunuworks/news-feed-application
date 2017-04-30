@@ -7,15 +7,15 @@ import Dropdownitem from './Dropdownitem';
 export default class Sources extends React.Component{
   constructor(props) {
     super();
-    this.getSources = this.getSources.bind(this);
+    this.reloadSources();
     this.state = {
       sources: newsStore.fetchSources(),
     }
+    this.getSources = this.getSources.bind(this);
   }
 
   componentWillMount() {
     newsStore.on('sourcesChanged', this.getSources);
-    this.reloadSources();
   }
 
   componentWillUnmount() {
@@ -25,7 +25,11 @@ export default class Sources extends React.Component{
   getSources() {
     this.setState({
       sources: newsStore.fetchSources(),
-    })
+    });
+    
+    if (this.state.sources.length > 0) {
+      this.reloadArticles();
+    }
   }
 
   reloadSources() {

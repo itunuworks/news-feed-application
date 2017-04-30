@@ -40,7 +40,6 @@ class Api{
     }
     rp(opts)
       .then((data) => {
-        console.log(data.articles);
         return callback(data.sources);
       })
       .catch((error) => {

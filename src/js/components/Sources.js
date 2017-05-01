@@ -7,15 +7,16 @@ import Dropdownitem from './Dropdownitem';
 export default class Sources extends React.Component{
   constructor(props) {
     super();
-    this.getSources = this.getSources.bind(this);
+    this.reloadSources();
     this.state = {
       sources: newsStore.fetchSources(),
+      filters: ['top']
     }
+    this.getSources = this.getSources.bind(this);
   }
 
   componentWillMount() {
     newsStore.on('sourcesChanged', this.getSources);
-    this.reloadSources();
   }
 
   componentWillUnmount() {
@@ -25,32 +26,53 @@ export default class Sources extends React.Component{
   getSources() {
     this.setState({
       sources: newsStore.fetchSources(),
-    })
+    });
+    
+    if (this.state.sources.length > 0) {
+      this.reloadArticles(false);
+    }
   }
 
   reloadSources() {
     newsActions.getSources();
   }
 
-  reloadArticles() {
+  reloadArticles(filter) {
+    console.log(filter);
     const selector = document.getElementById('selector');
-    console.log(selector.options[selector.selectedIndex].value);
-    newsActions.getArticles(selector.options[selector.selectedIndex].value); 
+    const filterSelector = document.getElementById('filterSelector');
+    
+    if (filter) {
+      newsActions.getArticles(selector.options[selector.selectedIndex].value, filterSelector.options[filterSelector.selectedIndex].value);
+    } else {
+      const { sources } = this.state;
+
+      newsActions.getArticles(selector.options[selector.selectedIndex].value); 
+      this.setState({
+        filters: sources[selector.selectedIndex].sortBysAvailable,
+      })
+    }
   }
 
   render() {
-    const { sources } = this.state;
+    const { sources, filters } = this.state;
+    const filterComponents = filters.map(filter => {
+      return <Dropdownitem value={filter} key={filter} text={filter}/>;
+    });
     const sourceComponents = sources.map(source => {
       return <Dropdownitem value={source.id} key={source.id} text={source.name}/>;
     });
     
     return (
       <div>
-        <h1>Hi, I am the sources DropdownBox.</h1>
         <div>
           Select Source 
-          <select id="selector" onChange={this.reloadArticles.bind(this)}>
+          <select id="selector" onChange={this.reloadArticles.bind(this, false)}>
             {sourceComponents}
+          </select>
+          Select Filter
+          <select id="filterSelector" onChange={this.reloadArticles.bind(this, true)}>
+            {filterComponents}
           </select>
         </div>
       </div>

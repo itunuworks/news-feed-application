@@ -51,6 +51,7 @@ export default class Sources extends React.Component{
       this.setState({
         filters: sources[selector.selectedIndex].sortBysAvailable,
       })
+      filterSelector.selectedIndex = 0;
     }
   }
 

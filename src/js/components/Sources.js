@@ -10,6 +10,7 @@ export default class Sources extends React.Component{
     this.reloadSources();
     this.state = {
       sources: newsStore.fetchSources(),
+      filters: ['top']
     }
     this.getSources = this.getSources.bind(this);
   }
@@ -28,7 +29,7 @@ export default class Sources extends React.Component{
     });
     
     if (this.state.sources.length > 0) {
-      this.reloadArticles();
+      this.reloadArticles(false);
     }
   }
 
@@ -36,16 +37,27 @@ export default class Sources extends React.Component{
     newsActions.getSources();
   }
 
-  reloadArticles() {
+  reloadArticles(filter) {
+    console.log(filter);
     const selector = document.getElementById('selector');
-    console.log(selector.options[selector.selectedIndex].value);
-    newsActions.getArticles(selector.options[selector.selectedIndex].value); 
+    const filterSelector = document.getElementById('filterSelector');
+    
+    if (filter) {
+      newsActions.getArticles(selector.options[selector.selectedIndex].value, filterSelector.options[filterSelector.selectedIndex].value);
+    } else {
+      const { sources } = this.state;
+
+      newsActions.getArticles(selector.options[selector.selectedIndex].value); 
+      this.setState({
+        filters: sources[selector.selectedIndex].sortBysAvailable,
+      })
+    }
   }
 
   render() {
-    const { sources } = this.state;
-    const filterComponents = ['top', 'latest', 'popular'].map(item => {
-      return <Dropdownitem value={item} key={item} text={item}/>;
+    const { sources, filters } = this.state;
+    const filterComponents = filters.map(filter => {
+      return <Dropdownitem value={filter} key={filter} text={filter}/>;
     });
     const sourceComponents = sources.map(source => {
       return <Dropdownitem value={source.id} key={source.id} text={source.name}/>;
@@ -55,11 +67,11 @@ export default class Sources extends React.Component{
       <div>
         <div>
           Select Source 
-          <select id="selector" onChange={this.reloadArticles.bind(this)}>
+          <select id="selector" onChange={this.reloadArticles.bind(this, false)}>
             {sourceComponents}
           </select>
           Select Filter
-          <select onChange={this.reloadArticles.bind(this)}>
+          <select id="filterSelector" onChange={this.reloadArticles.bind(this, true)}>
             {filterComponents}
           </select>
         </div>

@@ -1,15 +1,15 @@
-// import * from 'jasmine-matchers';
+import * from 'jasmine-matchers';
 
 // // Import all components
-// import Articles from '../src/js/components/Articles';
+import Articles from '../src/js/components/Articles';
 // import DropdownItem from '../src/js/components/DropdownItem';
 // import Sources from '../src/js/components/Sources';
 // import NewsItem from '../src/js/components/NewsItem';
 
-require('jasmine-matchers');
+// require('jasmine-matchers');
 
 // Import all components
-const Articles = require('../src/js/components/Articles');
+// const Articles = require('../src/js/components/Articles');
 // import DropdownItem from '../src/js/components/DropdownItem';
 // import Sources from '../src/js/components/Sources';
 // import NewsItem from '../src/js/components/NewsItem';

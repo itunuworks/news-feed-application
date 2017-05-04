@@ -38,7 +38,6 @@ export default class Sources extends React.Component{
   }
 
   reloadArticles(filter) {
-    console.log(filter);
     const selector = document.getElementById('selector');
     const filterSelector = document.getElementById('filterSelector');
     

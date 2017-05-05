@@ -1,20 +1,20 @@
 import dispatcher from '../dispatcher';
-import api from '../api/newsAPI';
+import Api from '../api/newsAPI';
 
-export function getArticles(source, sortBy){
-  api.getArticles(source, sortBy, (data) => {
+export function getArticles(source, sortBy) {
+  Api.getArticles(source, sortBy, (data) => {
     dispatcher.dispatch({
       type: 'GET_ARTICLES',
-      data
+      data,
     });
   });
 }
 
-export function getSources(){
-  api.getSources((data) => {
+export function getSources() {
+  Api.getSources((data) => {
     dispatcher.dispatch({
       type: 'GET_SOURCES',
-      data
+      data,
     });
   });
 }

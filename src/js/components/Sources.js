@@ -2,16 +2,17 @@ import React from 'react';
 
 import newsStore from '../store/newsStore';
 import * as newsActions from '../actions/newsActions';
-import Dropdownitem from './Dropdownitem';
+import Dropdownitem from './DropdownItem';
 
-export default class Sources extends React.Component{
-  constructor(props) {
+export default class Sources extends React.Component {
+  constructor() {
     super();
+    this.newsActions = newsActions;
     this.reloadSources();
     this.state = {
       sources: newsStore.fetchSources(),
-      filters: ['top']
-    }
+      filters: ['top'],
+    };
     this.getSources = this.getSources.bind(this);
   }
 
@@ -27,30 +28,30 @@ export default class Sources extends React.Component{
     this.setState({
       sources: newsStore.fetchSources(),
     });
-    
     if (this.state.sources.length > 0) {
       this.reloadArticles(false);
     }
   }
 
   reloadSources() {
-    newsActions.getSources();
+    this.newsActions.getSources();
   }
 
   reloadArticles(filter) {
-    console.log(filter);
     const selector = document.getElementById('selector');
     const filterSelector = document.getElementById('filterSelector');
-    
+
     if (filter) {
-      newsActions.getArticles(selector.options[selector.selectedIndex].value, filterSelector.options[filterSelector.selectedIndex].value);
+      this.newsActions.getArticles(
+        selector.options[selector.selectedIndex].value,
+        filterSelector.options[filterSelector.selectedIndex].value);
     } else {
       const { sources } = this.state;
 
-      newsActions.getArticles(selector.options[selector.selectedIndex].value); 
+      this.newsActions.getArticles(selector.options[selector.selectedIndex].value);
       this.setState({
         filters: sources[selector.selectedIndex].sortBysAvailable,
-      })
+      });
       filterSelector.selectedIndex = 0;
     }
   }
@@ -63,11 +64,10 @@ export default class Sources extends React.Component{
     const sourceComponents = sources.map(source => {
       return <Dropdownitem value={source.id} key={source.id} text={source.name}/>;
     });
-    
     return (
       <div>
         <div>
-          Select Source 
+          Select Source
           <select id="selector" onChange={this.reloadArticles.bind(this, false)}>
             {sourceComponents}
           </select>

@@ -13,11 +13,11 @@ class NewsStore extends EventEmitter {
   }
 
   fetchSources() {
-    return this.sources; 
+    return this.sources;
   }
 
   implementActions(action) {
-    switch(action.type) {
+    switch (action.type) {
       case 'GET_ARTICLES': {
         this.articles = action.data;
         this.emit('articlesChanged');
@@ -28,11 +28,14 @@ class NewsStore extends EventEmitter {
         this.emit('sourcesChanged');
         break;
       }
+      default: {
+        console.log('Wetin Happen?');
+      }
     }
   }
 }
 
-const newsStore = new NewsStore;
+const newsStore = new NewsStore();
 dispatcher.register(newsStore.implementActions.bind(newsStore));
 
 export default newsStore;

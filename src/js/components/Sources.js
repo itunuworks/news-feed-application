@@ -7,6 +7,7 @@ import Dropdownitem from './DropdownItem';
 export default class Sources extends React.Component {
   constructor() {
     super();
+    this.newsActions = newsActions;
     this.reloadSources();
     this.state = {
       sources: newsStore.fetchSources(),
@@ -33,7 +34,7 @@ export default class Sources extends React.Component {
   }
 
   reloadSources() {
-    newsActions.getSources();
+    this.newsActions.getSources();
   }
 
   reloadArticles(filter) {
@@ -41,13 +42,13 @@ export default class Sources extends React.Component {
     const filterSelector = document.getElementById('filterSelector');
 
     if (filter) {
-      newsActions.getArticles(
+      this.newsActions.getArticles(
         selector.options[selector.selectedIndex].value,
         filterSelector.options[filterSelector.selectedIndex].value);
     } else {
       const { sources } = this.state;
 
-      newsActions.getArticles(selector.options[selector.selectedIndex].value);
+      this.newsActions.getArticles(selector.options[selector.selectedIndex].value);
       this.setState({
         filters: sources[selector.selectedIndex].sortBysAvailable,
       });
@@ -66,7 +67,7 @@ export default class Sources extends React.Component {
     return (
       <div>
         <div>
-          Select Source 
+          Select Source
           <select id="selector" onChange={this.reloadArticles.bind(this, false)}>
             {sourceComponents}
           </select>

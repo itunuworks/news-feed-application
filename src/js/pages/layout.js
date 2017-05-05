@@ -1,5 +1,4 @@
 import React from 'react';
-import GoogleLogin from 'react-google-login';
 import Sources from '../components/Sources';
 import Articles from '../components/Articles';
 

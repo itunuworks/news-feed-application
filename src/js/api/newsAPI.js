@@ -1,50 +1,46 @@
 import rp from 'request-promise';
 
 const host = 'https://newsapi.org/v1/';
-const apiKey = '213327409d384371851777e7c7f78dfe';//use ENV to store keys. 
+const apiKey = '213327409d384371851777e7c7f78dfe';// use ENV to store keys.
 
-class Api{
-  getArticles(source, sortBy, callback) {
+class Api {
+  static getArticles(source, sortBy, callback) {
     const opts = {
       uri: `${host}articles`,
       qs: {
-          apiKey,
-          source,
-          sortBy
+        apiKey,
+        source,
+        sortBy,
       },
       headers: {
-        'User-Agent': 'Request-Promise'
+        'User-Agent': 'Request-Promise',
       },
-      json: true 
-    }
-    rp(opts)  
-      .then((data) => {
-        return callback(data.articles);
-      })
+      json: true,
+    };
+    rp(opts)
+      .then(data => callback(data.articles))
       .catch((error) => {
         console.log(error);
       });
   }
 
-  getSources(callback) {
+  static getSources(callback) {
     const opts = {
       uri: `${host}sources`,
       qs: {
-          apiKey,
+        apiKey,
       },
       headers: {
-        'User-Agent': 'Request-Promise'
+        'User-Agent': 'Request-Promise',
       },
-      json: true 
-    }
+      json: true,
+    };
     rp(opts)
-      .then((data) => {
-        return callback(data.sources);
-      })
+      .then(data => callback(data.sources))
       .catch((error) => {
         console.log(error);
       });
   }
 }
 
-export default new Api;
+export default Api;

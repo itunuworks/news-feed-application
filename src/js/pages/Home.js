@@ -1,8 +1,5 @@
 import React from 'react';
 
-import newsStore from '../store/newsStore';
-import * as newsActions from '../actions/newsActions';
-
 export default class Home extends React.Component {
   render() {
     return (

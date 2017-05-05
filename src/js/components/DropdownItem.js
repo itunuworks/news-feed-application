@@ -1,11 +1,7 @@
 import React from 'react';
-import newsStore from '../store/newsStore';
+// import newsStore from '../store/newsStore';
 
-export default class DropdownItem extends React.Component{
-  constructor(props) {
-    super();
-  }
-
+export default class DropdownItem extends React.Component {
   render() {
     const { value, text} = this.props;
 

@@ -19,6 +19,5 @@ ReactDOM.render(
         <Route path="/main" component={Main} />
       </Switch>
     </Layout>
-  </HashRouter>,
-	app,
+  </HashRouter>, app,
 );

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import newsStore from '../store/newsStore';
-import * as newsActions from '../actions/newsActions';
 import NewsItem from './NewsItem';
 
 export default class Articles extends React.Component {

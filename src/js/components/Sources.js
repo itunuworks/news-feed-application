@@ -39,6 +39,7 @@ export default class Sources extends React.Component {
   reloadArticles(filter) {
     const selector = document.getElementById('selector');
     const filterSelector = document.getElementById('filterSelector');
+
     if (filter) {
       newsActions.getArticles(
         selector.options[selector.selectedIndex].value,
@@ -65,7 +66,7 @@ export default class Sources extends React.Component {
     return (
       <div>
         <div>
-          Select Source
+          Select Source 
           <select id="selector" onChange={this.reloadArticles.bind(this, false)}>
             {sourceComponents}
           </select>

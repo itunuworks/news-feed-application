@@ -6,6 +6,7 @@ class NewsStore extends EventEmitter {
     super();
     this.articles = [];
     this.sources = [];
+    this.user = '';
   }
 
   fetchArticles() {
@@ -28,8 +29,21 @@ class NewsStore extends EventEmitter {
         this.emit('sourcesChanged');
         break;
       }
+      case 'USER_SIGNED_IN': {
+        this.user = action.user;
+        this.emit('userSignedIn');
+        console.log('Emitting userSignedIn');
+        break;
+      }
+      case 'USER_SIGNED_OUT': {
+        this.user = '';
+        this.emit('userSignedOut');
+        console.log('Emitting userSignedOut');
+        break;
+      }
       default: {
         console.log('Wetin Happen?');
+        break;
       }
     }
   }

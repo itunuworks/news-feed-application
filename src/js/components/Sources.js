@@ -28,6 +28,7 @@ export default class Sources extends React.Component {
     this.setState({
       sources: newsStore.fetchSources(),
     });
+    console.log(this.state.sources.length);
     if (this.state.sources.length > 0) {
       this.reloadArticles(false);
     }

@@ -6,7 +6,7 @@ class NewsStore extends EventEmitter {
     super();
     this.articles = [];
     this.sources = [];
-    this.user = '';
+    this.user = null;
   }
 
   fetchArticles() {
@@ -15,6 +15,10 @@ class NewsStore extends EventEmitter {
 
   fetchSources() {
     return this.sources;
+  }
+
+  getUser() {
+    return this.user;
   }
 
   implementActions(action) {
@@ -29,16 +33,10 @@ class NewsStore extends EventEmitter {
         this.emit('sourcesChanged');
         break;
       }
-      case 'USER_SIGNED_IN': {
+      case 'AUTH_CHANGED': {
         this.user = action.user;
-        this.emit('userSignedIn');
-        console.log('Emitting userSignedIn');
-        break;
-      }
-      case 'USER_SIGNED_OUT': {
-        this.user = '';
-        this.emit('userSignedOut');
-        console.log('Emitting userSignedOut');
+        this.emit('authChanged');
+        console.log('Emitting userAuthChanged', action.user);
         break;
       }
       default: {

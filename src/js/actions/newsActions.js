@@ -13,17 +13,10 @@ export function signOut() {
 }
 
 export function authStateChangedHandler(user) {
-  if (user) {
-    dispatcher.dispatch({
-      type: 'USER_SIGNED_IN',
-      user,
-    });
-  }
-  else {
-    dispatcher.dispatch({
-      type: 'USER_SIGNED_OUT',
-    });
-  }
+  dispatcher.dispatch({
+    type: 'AUTH_CHANGED',
+    user,
+  });
 }
 
 window.signIn = firebaseApi.signIn.bind(firebaseApi);

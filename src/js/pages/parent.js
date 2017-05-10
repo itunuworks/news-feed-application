@@ -31,8 +31,10 @@ constructor() {
     newsStore.removeListener('authChanged', this.getUser.bind(this));
   }
 
-  getUser(user) {
-    this.setState(user: newsStore.user);
+  getUser() {
+    this.setState({
+      user: newsStore.user
+    });
   }
 
   render() {
@@ -40,8 +42,8 @@ constructor() {
       <HashRouter>
         <Layout>
           <Switch>
-            <Route path="/" component={newsStore.user ? Main : Home} />
-            <Route path="/main" component={newsStore.user ? Main : Home} />
+            <Route path="/" component={this.state.user ? Main : Home} />
+            <Route path="/main" component={this.state.user ? Main : Home} />
           </Switch>
         </Layout>
       </HashRouter>

@@ -58,21 +58,25 @@ export default class Sources extends React.Component {
 
   render() {
     const { sources, filters } = this.state;
-    const filterComponents = filters.map(filter => {
-      return <Dropdownitem value={filter} key={filter} text={filter}/>;
-    });
-    const sourceComponents = sources.map(source => {
-      return <Dropdownitem value={source.id} key={source.id} text={source.name}/>;
-    });
+    const filterComponents = filters.map(
+      filter => <Dropdownitem value={filter} key={filter} text={filter} />);
+    const sourceComponents = sources.map(
+      source => <Dropdownitem value={source.id} key={source.id} text={source.name} />);
     return (
       <div>
         <div>
           Select Source
-          <select id="selector" onChange={this.reloadArticles.bind(this, false)}>
+          <select
+            id="selector" className="browser-default"
+            onChange={this.reloadArticles.bind(this, false)}
+          >
             {sourceComponents}
           </select>
           Select Filter
-          <select id="filterSelector" onChange={this.reloadArticles.bind(this, true)}>
+          <select
+            id="filterSelector" className="browser-default"
+            onChange={this.reloadArticles.bind(this, true)}
+          >
             {filterComponents}
           </select>
         </div>

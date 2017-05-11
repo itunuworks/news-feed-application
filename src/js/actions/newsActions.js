@@ -20,12 +20,13 @@ export function authStateChangedHandler(user) {
   });
 }
 
-// window.signIn = firebaseApi.signIn.bind(firebaseApi);
-// window.signOut = firebaseApi.signOut.bind(firebaseApi);
-// window.getInstance = firebaseApi.getCurrentUser.bind(firebaseApi);
+window.signIn = firebaseApi.signIn.bind(firebaseApi);
+window.signOut = firebaseApi.signOut.bind(firebaseApi);
+window.getInstance = firebaseApi.getCurrentUser.bind(firebaseApi);
 
 /*
-Request for articles from the NewsApi and recieve same once api is done fetching.
+Request for articles from the NewsApi and recieve
+same once api is done fetching.
 Also dispatch the GET_ARTICLES message and fetched articles.
 */
 export function getArticles(source, sortBy) {

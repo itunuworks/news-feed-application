@@ -9,20 +9,17 @@ class Firebase {
 
   initializeApp() {
     this.firebase.initializeApp({
-      apiKey: 'AIzaSyC0rOpMhEtIqP-XRKn0MT7jGhc8013AiOU',
-      authDomain: 'news-feed-application-166302.firebaseapp.com',
-      databaseURL: 'https://news-feed-application-166302.firebaseio.com',
-      projectId: 'news-feed-application-166302',
-      storageBucket: 'news-feed-application-166302.appspot.com',
-      messagingSenderId: '5132228650',
+      apiKey: 'AIzaSyCI4rndHukYUe_FGD4Np2VIy64S9cXu_8Y',
+      authDomain: 'my-news-project-167300.firebaseapp.com',
+      databaseURL: 'https://my-news-project-167300.firebaseio.com',
+      projectId: 'my-news-project-167300',
+      storageBucket: 'my-news-project-167300.appspot.com',
+      messagingSenderId: '575633828507',
     });
-    console.log('Firebase just got initialized');
     this.provider = new this.firebase.auth.GoogleAuthProvider();
     this.provider.addScope('');
     // this.firebase.auth().onAuthStateChanged(this.onAuthStateChanged.bind(this));
     this.firebase.auth().onAuthStateChanged((user) => {
-      console.log(user);
-      console.log(this.firebase.auth());
       authStateChangedHandler(user);
     });
     this.signIn.bind(this);
@@ -30,7 +27,7 @@ class Firebase {
   }
 
   signIn() {
-    this.firebase.auth().signInWithPopup(this.provider)
+    this.firebase.auth().signInWithRedirect(this.provider)
     .then((result) => {
       console.log(result);
     });

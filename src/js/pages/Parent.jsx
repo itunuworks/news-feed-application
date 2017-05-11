@@ -10,35 +10,39 @@ import Main from './Main';
 import Layout from './Layout';
 import newsStore from '../store/newsStore';
 
-/*
-const clientId = '5132228650-521v0qouoj8iv6uqr6od6m8v9hiv906m.apps.googleusercontent.com';
-Try not to hardcode this. Also use the ENV property.
-*/
-
+// Create a Parent component which helps with housing other components and front-end routing.
 export default class Parent extends React.Component {
-constructor() {
+  constructor() {
     super();
+    // Setup initial user logIn state.
     this.state = {
       user: null,
     };
   }
 
+  /* On component mount, set a listener to the authChanged
+     event and use it to get the current user state. */
   componentWillMount() {
     newsStore.on('authChanged', this.getUser.bind(this));
   }
 
+  // Remove the added listener once the component is unmounted.
   componentWillUnmount() {
     newsStore.removeListener('authChanged', this.getUser.bind(this));
   }
 
+  // Fetches current user state from the store and sets it on this.state.
   getUser() {
     this.setState({
-      user: newsStore.user
+      user: newsStore.user,
     });
   }
 
+  /* Returns a route based on the current user state.
+     If the user is signed In, it routes user to Main page.
+     Else, it re-routes user to the Home page. */
   render() {
-    return(
+    return (
       <HashRouter>
         <Layout>
           <Switch>
@@ -47,6 +51,6 @@ constructor() {
           </Switch>
         </Layout>
       </HashRouter>
-   	);
+    );
   }
 }

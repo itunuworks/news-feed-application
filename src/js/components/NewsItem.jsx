@@ -9,7 +9,7 @@ export default class Articles extends React.Component {
   }
 
   render() {
-    const { author, title, description, url, urlToImage, publishedAt } = this.props;    
+    const { author, title, description, url, urlToImage, publishedAt } = this.props;
     return (
       <li>
         <div>

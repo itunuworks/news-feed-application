@@ -42,7 +42,7 @@ class Firebase {
         console.log(result);
       });
   }
-
+s
 /*
   createUserList(listName) {
     console.log(`I am creating a new user list named ${listName}`);

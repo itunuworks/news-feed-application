@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1494522176467" clover="3.2.0">
-  <project timestamp="1494522176467" name="All files">
-    <metrics statements="38" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="25" coveredmethods="6" elements="63" coveredelements="22" complexity="0" loc="38" ncloc="38" packages="3" files="4" classes="4">
+<coverage generated="1494583404001" clover="3.2.0">
+  <project timestamp="1494583404001" name="All files">
+    <metrics statements="38" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="22" coveredmethods="6" elements="60" coveredelements="25" complexity="0" loc="38" ncloc="38" packages="3" files="4" classes="4">
       <package name="js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="dispatcher.js" path="/Users/andeladeveloper/Documents/Projects/news-feed-application/src/js/dispatcher.js">
@@ -9,39 +9,39 @@
         </file>
       </package>
       <package name="js.actions">
-        <metrics statements="7" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
+        <metrics statements="10" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
         <file name="newsActions.js" path="/Users/andeladeveloper/Documents/Projects/news-feed-application/src/js/actions/newsActions.js">
-          <metrics statements="7" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
+          <metrics statements="10" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
           <line num="7" count="0" type="stmt"/>
           <line num="12" count="0" type="stmt"/>
           <line num="17" count="1" type="stmt"/>
-          <line num="32" count="0" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
           <line num="33" count="0" type="stmt"/>
-          <line num="45" count="1" type="stmt"/>
-          <line num="46" count="0" type="stmt"/>
+          <line num="34" count="0" type="stmt"/>
+          <line num="46" count="1" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
         </file>
       </package>
       <package name="js.api">
-        <metrics statements="31" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="18" coveredmethods="4"/>
+        <metrics statements="28" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="15" coveredmethods="4"/>
         <file name="firebaseApi.js" path="/Users/andeladeveloper/Documents/Projects/news-feed-application/src/js/api/firebaseApi.js">
-          <metrics statements="21" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="3"/>
+          <metrics statements="18" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="3"/>
           <line num="6" count="1" type="stmt"/>
           <line num="7" count="1" type="stmt"/>
           <line num="11" count="1" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
           <line num="20" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
           <line num="22" count="1" type="stmt"/>
-          <line num="23" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
           <line num="25" count="1" type="stmt"/>
-          <line num="26" count="1" type="stmt"/>
-          <line num="30" count="0" type="stmt"/>
-          <line num="32" count="0" type="stmt"/>
-          <line num="37" count="0" type="stmt"/>
-          <line num="41" count="0" type="stmt"/>
-          <line num="43" count="0" type="stmt"/>
-          <line num="48" count="0" type="stmt"/>
-          <line num="52" count="0" type="stmt"/>
-          <line num="56" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="36" count="0" type="stmt"/>
+          <line num="40" count="0" type="stmt"/>
+          <line num="42" count="0" type="stmt"/>
           <line num="60" count="0" type="stmt"/>
           <line num="61" count="0" type="stmt"/>
           <line num="62" count="0" type="stmt"/>

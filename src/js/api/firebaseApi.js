@@ -18,7 +18,6 @@ class Firebase {
     });
     this.provider = new this.firebase.auth.GoogleAuthProvider();
     this.provider.addScope('');
-    // this.firebase.auth().onAuthStateChanged(this.onAuthStateChanged.bind(this));
     this.firebase.auth().onAuthStateChanged((user) => {
       authStateChangedHandler(user);
     });
@@ -44,6 +43,7 @@ class Firebase {
       });
   }
 
+/*
   createUserList(listName) {
     console.log(`I am creating a new user list named ${listName}`);
   }
@@ -55,7 +55,7 @@ class Firebase {
   deleteUserList(listName) {
     console.log(`I am deleting a new user list named ${listName}`);
   }
-
+*/
   onAuthStateChanged(user) {
     console.log(this.firebase.auth());
     console.log('onAuthStateChanged just got fired');

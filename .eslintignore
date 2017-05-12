@@ -1,0 +1,3 @@
+coverage/
+src/js/materialize/
+src/*.min.js

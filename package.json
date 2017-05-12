@@ -4,9 +4,17 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
     "dev": "webpack-dev-server --content-base src --inline --hot",
     "start": "node server.js"
+  },
+  "jest": {
+    "moduleFileExtensions": ["es6", "js"],
+    "collectCoverage": true,
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>node_modules/babel-jest"
+    },
+    "unmockedModulePathPatterns": ["react"]
   },
   "repository": {
     "type": "git",
@@ -52,6 +60,7 @@
     "webpack-dev-server": "^2.4.5"
   },
   "devDependencies": {
+    "babel-jest": "^20.0.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",

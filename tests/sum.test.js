@@ -10,9 +10,9 @@ describe('Test all available Components, ', () => {
   //   });
   // });
   describe('all actions, ', () => {
-	it("shouldn't be yes, ", () => {
-		expect(actions.getSources()).not.toBe(null);
-	});
+    it("shouldn't be yes, ", () => {
+      expect(actions.getSources()).not.toBe(null);
+    });
   });
 });
 
@@ -22,3 +22,10 @@ describe('Test all available Components, ', () => {
 // test('adds 1 + 2 to equal 3', () => {
 //   expect(sum(1, 2)).toBe(3);
 // });
+describe('SAmple tests', () => {
+  describe('A more detailed description', () => {
+    it('should do something really nice', () => {
+
+    });
+  });
+});

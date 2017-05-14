@@ -33,8 +33,8 @@ export default class Articles extends React.Component {
     });
     return (
       <div>
-        <ul>
-          <li><b>My list of articles goes up in here.</b></li>
+        <ul className="collection">
+          <li className="collection-item red"><b>My list of articles goes up in here.</b></li>
           {articleComponents}
         </ul>
       </div>

@@ -48,7 +48,9 @@ export default class Sources extends React.Component {
     } else {
       const { sources } = this.state;
 
-      this.newsActions.getArticles(selector.options[selector.selectedIndex].value);
+      this.newsActions.getArticles(
+        selector.options[selector.selectedIndex].value
+        );
       this.setState({
         filters: sources[selector.selectedIndex].sortBysAvailable,
       });
@@ -61,7 +63,11 @@ export default class Sources extends React.Component {
     const filterComponents = filters.map(
       filter => <Dropdownitem value={filter} key={filter} text={filter} />);
     const sourceComponents = sources.map(
-      source => <Dropdownitem value={source.id} key={source.id} text={source.name} />);
+      source => <Dropdownitem
+        value={source.id}
+        key={source.id}
+        text={source.name}
+      />);
     return (
       <div>
         <div>

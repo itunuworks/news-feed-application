@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">71.43% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/10</span>
+        <span class='fraction'>5/7</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">28.57% </span>
+        <span class="strong">71.43% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/7</span>
+        <span class='fraction'>5/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">71.43% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/10</span>
+        <span class='fraction'>5/7</span>
       </div>
     </div>
   </div>
@@ -91,22 +91,13 @@
 46
 47
 48
-49
-50
-51
-52
-53</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+49</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -116,18 +107,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -140,7 +132,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -152,13 +144,13 @@ import NewsApi from '../api/newsAPI';
 import firebaseApi from '../api/firebaseApi';
 &nbsp;
 // Handle the signIn event.
-export function <span class="fstat-no" title="function not covered" >signIn(</span>) {
-<span class="cstat-no" title="statement not covered" >  firebaseApi.signIn();</span>
+export function signIn() {
+  firebaseApi.signIn();
 }
 &nbsp;
 // Handle the signOut event.
-export function <span class="fstat-no" title="function not covered" >signOut(</span>) {
-<span class="cstat-no" title="statement not covered" >  firebaseApi.signOut();</span>
+export function signOut() {
+  firebaseApi.signOut();
 }
 &nbsp;
 // Recieve authStateChanged event from the firebaseApi and resolve the new user.
@@ -169,17 +161,13 @@ export function authStateChangedHandler(user) {
   });
 }
 &nbsp;
-window.signIn = firebaseApi.signIn.bind(firebaseApi);
-window.signOut = firebaseApi.signOut.bind(firebaseApi);
-window.getInstance = firebaseApi.getCurrentUser.bind(firebaseApi);
-&nbsp;
 /*
 Request for articles from the NewsApi and recieve
 same once api is done fetching.
 Also dispatch the GET_ARTICLES message and fetched articles.
 */
-export function <span class="fstat-no" title="function not covered" >getArticles(</span>source, sortBy) {
-<span class="cstat-no" title="statement not covered" >  NewsApi.getArticles(source, sortBy, <span class="fstat-no" title="function not covered" >(a</span>rticles) =&gt; {</span>
+export function getArticles(source, sortBy) {
+  NewsApi.getArticles(source, sortBy, <span class="fstat-no" title="function not covered" >(a</span>rticles) =&gt; {
 <span class="cstat-no" title="statement not covered" >    dispatcher.dispatch({</span>
       type: 'GET_ARTICLES',
       articles,
@@ -205,7 +193,7 @@ export function getSources() {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed May 17 2017 17:17:05 GMT+0100 (WAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 18 2017 13:30:13 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

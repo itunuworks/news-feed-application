@@ -5,8 +5,8 @@ jest.mock('../../src/js/dispatcher');
 const callback = dispatcher.register.mock.calls[0][0];
 
 // beforeEach(() => {
-//   console.log(callback);
-//   callback = dispatcher.register.mock.calls[0][0];
+//   console.log(dispatcher.dispatch.mock.calls.length);
+//   // callback = dispatcher.register.mock.calls[0][0];
 // });
 
 describe('Test all stores: ', () => {

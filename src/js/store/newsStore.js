@@ -53,11 +53,9 @@ class NewsStore extends EventEmitter {
       case 'AUTH_CHANGED': {
         this.user = action.user;
         this.emit('authChanged');
-        console.log('Emitting userAuthChanged', action.user);
         break;
       }
       default: {
-        console.log('Wetin Happen?');
         break;
       }
     }

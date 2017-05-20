@@ -9,12 +9,17 @@
     "start": "node server.js"
   },
   "jest": {
-    "moduleFileExtensions": ["es6", "js"],
+    "moduleFileExtensions": [
+      "es6",
+      "js"
+    ],
     "collectCoverage": true,
     "transform": {
       "^.+\\.(js|jsx)$": "<rootDir>node_modules/babel-jest"
     },
-    "unmockedModulePathPatterns": ["react"]
+    "unmockedModulePathPatterns": [
+      "react"
+    ]
   },
   "repository": {
     "type": "git",
@@ -56,6 +61,7 @@
     "request": "^2.81.0",
     "request-promise": "^4.2.0",
     "router": "^1.3.0",
+    "semantic-ui-react": "^0.68.3",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.5"
   },

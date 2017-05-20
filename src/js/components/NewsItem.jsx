@@ -13,15 +13,23 @@ export default class Articles extends React.Component {
       author, title, description, urlToImage, publishedAt
     } = this.props;
     return (
-      <li className="collection-item avatar yellow">
-        <div>
-          <a href="/main" onClick={this.handleClick.bind(this)}>{title}</a>
-          <img alt="HTML5" src={urlToImage} className="circle" />
-          <div>{description}</div>
-          <div>Author: {author}</div>
-          <div>Posted On: {publishedAt}</div>
+      <div className="item">
+        <div className="image">
+          <img src={urlToImage} alt="list" />
         </div>
-      </li>
+        <div className="content">
+          <a href="#/main" className="header" onClick={this.handleClick.bind(this)}>{ title }</a>
+          <div className="meta">
+            <span><small>By - {author}</small></span>
+          </div>
+          <div className="description">
+            <p>{description}</p>
+          </div>
+          <div className="extra">
+            <small><i>published at: {publishedAt}</i></small>
+          </div>
+        </div>
+      </div>
     );
   }
 }

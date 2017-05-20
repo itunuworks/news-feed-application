@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from 'semantic-ui-react';
 
 import newsStore from '../store/newsStore';
 import NewsItem from './NewsItem';
@@ -29,15 +30,14 @@ export default class Articles extends React.Component {
   render() {
     const { articles } = this.state;
     const articleComponents = articles.map((article) => {
-      return <NewsItem author={article.author} title={article.title} description={article.description} url={article.url} urlToImage={article.urlToImage} publishedAt={article.publishedAt} key={article.url}/>;
+      return <NewsItem author={article.author} title={article.title} description={article.description} url={article.url} urlToImage={article.urlToImage} publishedAt={article.publishedAt} key={article.url} />;
     });
     return (
-      <div>
-        <ul className="collection">
-          <li className="collection-item red"><b>My list of articles goes up in here.</b></li>
-          {articleComponents}
-        </ul>
-      </div>
+      <Container text>
+        <div className="ui items">
+          { articleComponents }
+        </div>
+      </Container>
     );
   }
 }

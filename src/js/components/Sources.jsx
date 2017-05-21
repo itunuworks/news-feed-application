@@ -90,14 +90,14 @@ export default class Sources extends React.Component {
         <div>
           Select Source
           <select
-            id="selector" className="browser-default"
+            id="selector" className="ui search dropdown"
             onChange={this.reloadArticles.bind(this, false)}
           >
             {sourceComponents}
           </select>
           Select Filter
           <select
-            id="filterSelector" className="browser-default"
+            id="filterSelector" className="ui search dropdown"
             onChange={this.reloadArticles.bind(this, true)}
           >
             {filterComponents}

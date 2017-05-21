@@ -1,35 +1,32 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 import Sources from '../components/Sources';
 import Articles from '../components/Articles';
 import * as newsActions from '../actions/newsActions';
 
-export default class Main extends React.Component {
-  render() {
-    return (
-      <div>
-        <div className="ui large top fixed hidden menu">
-          <div className="ui container">
-            <a className="active item">Home</a>
-            <a className="item">Work</a>
-            <a className="item">Company</a>
-            <a className="item">Careers</a>
-            <div className="right menu">
-              <div className="item">
-                <a className="ui button">Log in</a>
-              </div>
-              <div className="item">
-                <a className="ui primary button">Sign Up</a>
-              </div>
+export default function Main() {
+  return (
+    <div>
+      <div className="ui large top hidden menu">
+        <div className="ui container">
+          <a className="item" href="/#/home">Home</a>
+          <a className="active item" href="/#/main">Main</a>
+          <a className="item" href="/#/favorites">My Lists</a>
+          <div className="right menu">
+            <div className="item">
+              <Button primary onClick={newsActions.signOut}>Sign Out</Button>
             </div>
           </div>
         </div>
-        <div className="container">
-          <h1>Hi, I am the MAIN page</h1>
-          <button onClick={newsActions.signOut}>Sign Out</button>
-          <Sources />
-          <Articles />
-        </div>
       </div>
-    );
-  }
+      <div className="ui container text">
+        <h1>NEWS HUB <small>
+          <i>Multidimensional news on demand...</i></small>
+        </h1>
+        <div />
+        <Sources />
+        <Articles />
+      </div>
+    </div>
+  );
 }

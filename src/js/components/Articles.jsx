@@ -29,9 +29,17 @@ export default class Articles extends React.Component {
 
   render() {
     const { articles } = this.state;
-    const articleComponents = articles.map((article) => {
-      return <NewsItem author={article.author} title={article.title} description={article.description} url={article.url} urlToImage={article.urlToImage} publishedAt={article.publishedAt} key={article.url} />;
-    });
+    const articleComponents = articles.map(article => (
+      <NewsItem
+        author={article.author}
+        title={article.title}
+        description={article.description}
+        url={article.url}
+        urlToImage={article.urlToImage}
+        publishedAt={article.publishedAt}
+        key={article.url}
+      />
+    ));
     return (
       <Container text>
         <div className="ui items">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Dropdown } from 'semantic-ui-react';
 
 import newsStore from '../store/newsStore';
 import * as newsActions from '../actions/newsActions';
@@ -14,9 +15,10 @@ export default class Sources extends React.Component {
       filters: ['top'],
     };
     this.getSources = this.getSources.bind(this);
+    this.reloadArticles = this.reloadArticles.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     newsStore.on('sourcesChanged', this.getSources);
   }
 
@@ -68,23 +70,51 @@ export default class Sources extends React.Component {
         key={source.id}
         text={source.name}
       />);
+    const newsSources = sources.map(
+      source => (
+        {
+          key: source.id,
+          value: source.id,
+          text: source.name
+        }
+      ));
+    const filterOptions = filters.map(
+      filter => (
+        {
+          key: filter,
+          value: filter,
+          text: filter
+        }
+      ));
     return (
       <div>
         <div>
           Select Source
           <select
-            id="selector" className="browser-default"
-            onChange={this.reloadArticles.bind(this, false)}
+            id="selector" className="ui search dropdown"
+            onChange={() => {
+              this.reloadArticles(false);
+            }}
           >
             {sourceComponents}
           </select>
           Select Filter
           <select
-            id="filterSelector" className="browser-default"
-            onChange={this.reloadArticles.bind(this, true)}
+            id="filterSelector" className="ui search dropdown"
+            onChange={() => {
+              this.reloadArticles(true);
+            }}
           >
             {filterComponents}
           </select>
+          <Dropdown
+            placeholder="News Sources"
+            search selection options={newsSources}
+          />
+          <Dropdown
+            placeholder="SortBy"
+            search selection options={filterOptions}
+          />
         </div>
       </div>
     );

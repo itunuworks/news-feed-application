@@ -55,11 +55,6 @@ class Firebase {
     console.log(`I am deleting a new user list named ${listName}`);
   }
 */
-  onAuthStateChanged(user) {
-    console.log(this.firebase.auth());
-    console.log('onAuthStateChanged just got fired');
-    console.log(user);
-  }
 }
 
 const firebaseInstance = new Firebase();

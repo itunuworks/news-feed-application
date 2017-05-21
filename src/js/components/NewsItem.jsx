@@ -1,27 +1,46 @@
 import React from 'react';
 
-export default class Articles extends React.Component {
+export default function Articles(props) {
+  const {
+      author, title, description, urlToImage, publishedAt
+    } = props;
 
-  handleClick(e) {
+  function handleClick(e) {
     const { url } = this.props;
     e.preventDefault();
     window.open(url, '_blank');
   }
 
-  render() {
-    const {
-      author, title, description, urlToImage, publishedAt
-    } = this.props;
-    return (
-      <li className="collection-item avatar yellow">
-        <div>
-          <a href="/main" onClick={this.handleClick.bind(this)}>{title}</a>
-          <img alt="HTML5" src={urlToImage} className="circle" />
-          <div>{description}</div>
-          <div>Author: {author}</div>
-          <div>Posted On: {publishedAt}</div>
+  const clickHandler = handleClick.bind(this);
+  return (
+    <div className="item">
+      <div className="image">
+        <img src={urlToImage} alt="list" />
+      </div>
+      <div className="content">
+        <a href="#/main" className="header" onClick={clickHandler}>{ title }</a>
+        <div className="meta">
+          <span><small>By - {author}</small></span>
         </div>
-      </li>
-    );
-  }
+        <div className="description">
+          <p>{description}</p>
+        </div>
+        <div className="extra">
+          <small><i>published at: {publishedAt}</i></small>
+        </div>
+      </div>
+    </div>
+  );
 }
+
+Articles.propTypes = {
+  author: React.PropTypes.string,
+  title: React.PropTypes.string.isRequired,
+  description: React.PropTypes.string.isRequired,
+  urlToImage: React.PropTypes.string.isRequired,
+  publishedAt: React.PropTypes.string.isRequired,
+};
+
+Articles.defaultProps = {
+  author: 'Anonymous'
+};

@@ -3,6 +3,7 @@ import {
   HashRouter,
   Route,
   Switch,
+  Redirect,
 } from 'react-router-dom';
 
 import Home from './Home';
@@ -48,10 +49,32 @@ export default class Parent extends React.Component {
       <HashRouter>
         <Layout>
           <Switch>
-            <Route path="/home" component={this.state.user ? Main : Home} />
-            <Route path="/main" component={this.state.user ? Main : Home} />
             <Route
-              path="/favorites" component={this.state.user ? ListView : Home}
+              path="/home" render={() => (
+                this.state.user ? (
+                  <Redirect to="/main" />
+                ) : (
+                  <Home />
+                )
+              )}
+            />
+            <Route
+              path="/main" render={() => (
+                this.state.user ? (
+                  <Main />
+                ) : (
+                  <Redirect to="/home" />
+                )
+              )}
+            />
+            <Route
+              path="/favorites" render={() => (
+                this.state.user ? (
+                  <ListView />
+                ) : (
+                  <Redirect to="/home" />
+                )
+              )}
             />
           </Switch>
         </Layout>

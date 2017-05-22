@@ -2,23 +2,22 @@ import React from 'react';
 
 export default function Articles(props) {
   const {
-      author, title, description, urlToImage, publishedAt
+      url, author, title, description, urlToImage, publishedAt
     } = props;
 
   function handleClick(e) {
-    const { url } = this.props;
     e.preventDefault();
     window.open(url, '_blank');
   }
 
-  const clickHandler = handleClick.bind(this);
+  // const clickHandler = handleClick.bind(this);
   return (
     <div className="item">
       <div className="image">
         <img src={urlToImage} alt="list" />
       </div>
       <div className="content">
-        <a href="#/main" className="header" onClick={clickHandler}>{ title }</a>
+        <a href="#/main" className="header" onClick={handleClick}>{ title }</a>
         <div className="meta">
           <span><small>By - {author}</small></span>
         </div>
@@ -34,6 +33,7 @@ export default function Articles(props) {
 }
 
 Articles.propTypes = {
+  url: React.PropTypes.string.isRequired,
   author: React.PropTypes.string,
   title: React.PropTypes.string.isRequired,
   description: React.PropTypes.string.isRequired,

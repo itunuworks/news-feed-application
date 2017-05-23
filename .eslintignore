@@ -1,2 +1,3 @@
 coverage/
-src/*.min.js
+src/**/*.min.js
+node_modules/

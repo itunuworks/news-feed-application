@@ -16,8 +16,8 @@ const firebaseSignOut = firebaseApi.signOut.mock;
 const newsApiGetSources = NewsApi.getSources;
 const newsApiGetArticles = NewsApi.getArticles;
 
-newsApiGetSources.mockReturnValue('We are Sources');
-newsApiGetArticles.mockReturnValue('We are articles');
+// newsApiGetSources.mockReturnValue('We are Sources');
+// newsApiGetArticles.mockReturnValue('We are articles');
 
 // Call the authStateChangedHandler function with some data.
 actions.authStateChangedHandler({ name: 'Itunuloluwa' });

@@ -8,15 +8,13 @@ import React from 'react';
  * @param {object} props
  * @returns {JSX Component}
  */
-export default function Layout(props) {
-  return (
-    <div>
-      <div className="container">
-        {props.children}
-      </div>
+const Layout = props => (
+  <div>
+    <div className="container">
+      {props.children}
     </div>
-  );
-}
+  </div>
+);
 
 // Proptype validation.
 Layout.propTypes = {
@@ -27,3 +25,4 @@ Layout.defaultProps = {
   children: '',
 };
 
+export default Layout;

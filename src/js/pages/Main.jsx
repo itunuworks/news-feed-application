@@ -12,9 +12,9 @@ import * as newsActions from '../actions/newsActions';
  * @export
  * @returns (JSX)
  */
-export default function Main() {
-  return (
-    <div>
+const Main = () => (
+  <div>
+    <div className="ui container">
       <div className="ui large top hidden menu">
         <div className="ui container">
           <a className="item" href="/#/home">Home</a>
@@ -27,14 +27,14 @@ export default function Main() {
           </div>
         </div>
       </div>
-      <div className="ui container text">
-        <h1>NEWS ON DEMAND <small>
-          <i>Exposition at its best...</i></small>
-        </h1>
-        <div />
-        <Sources />
-        <Articles />
-      </div>
+      <h1 className="ui center aligned header">NEWS ON DEMAND <small>
+        <i>exposition at its best...</i></small>
+      </h1>
+      <div />
+      <Sources />
+      <Articles />
     </div>
-  );
-}
+  </div>
+);
+
+export default Main;

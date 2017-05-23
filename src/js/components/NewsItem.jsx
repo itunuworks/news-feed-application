@@ -4,11 +4,10 @@ import React from 'react';
  * This module returns a <div> component housing a news item.
  *
  * @function Articles
- * @export
  * @param {any} props - Properties for the jsx component
  * @returns {JSX Component}
  */
-export default function Articles(props) {
+const Articles = (props) => {
   const {
       url, author, title, description, urlToImage, publishedAt
     } = props;
@@ -20,10 +19,10 @@ export default function Articles(props) {
    * @function handleClick
    * @param {object} e
    */
-  function handleClick(e) {
+  const handleClick = (e) => {
     e.preventDefault();
     window.open(url, '_blank');
-  }
+  };
 
   return (
     <div className="item">
@@ -44,7 +43,7 @@ export default function Articles(props) {
       </div>
     </div>
   );
-}
+};
 
 // Proptype validation
 Articles.propTypes = {
@@ -53,9 +52,12 @@ Articles.propTypes = {
   title: React.PropTypes.string.isRequired,
   description: React.PropTypes.string.isRequired,
   urlToImage: React.PropTypes.string.isRequired,
-  publishedAt: React.PropTypes.string.isRequired,
+  publishedAt: React.PropTypes.string,
 };
 
 Articles.defaultProps = {
-  author: 'Anonymous'
+  author: 'Anonymous',
+  publishedAt: ''
 };
+
+export default Articles;

@@ -4,12 +4,8 @@ import newsStore from '../../src/js/store/newsStore';
 jest.mock('../../src/js/dispatcher');
 const callback = dispatcher.register.mock.calls[0][0];
 
-// beforeEach(() => {
-//   console.log(dispatcher.dispatch.mock.calls.length);
-//   // callback = dispatcher.register.mock.calls[0][0];
-// });
-
 describe('Test all stores: ', () => {
+  // Declare sample action data to be passed across by dispatcher.
   const actionGetArticles = {
     type: 'GET_ARTICLES',
     articles: ['one', 'two', 'three'],

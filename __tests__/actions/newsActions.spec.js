@@ -23,31 +23,31 @@ newsApiGetArticles.mockReturnValue('We are articles');
 actions.authStateChangedHandler({ name: 'Itunuloluwa' });
 
 // Test implementations.
-describe('Action dispatches a message', () => {
-  it('dispatcher calls lenght should be > 0', () => {
+describe('Action dispatches messages as Required', () => {
+  it('should have Itunuloluwa as name in the message', () => {
     expect(dispatch.calls[0][0].user.name).toBe('Itunuloluwa');
   });
-  it('should dispatch a message on user authentication', () => {
+  it('should have been called only once', () => {
     expect(dispatch.calls.length).toBe(1);
   });
-  it('should dispatch a message on user authentication', () => {
+  it('should have AUTH_CHANGED as the message type', () => {
     expect(dispatch.calls[0][0].type).toBe('AUTH_CHANGED');
   });
-  it('should dispatch a message on user authentication', () => {
+  it('should trigger a function on signIn', () => {
     expect(actions.signIn).toBeInstanceOf(Function);
   });
-  it('should dispatch a message on user authentication', () => {
+  it('should trigger a function on signOut', () => {
     expect(actions.signOut).toBeInstanceOf(Function);
   });
-  it('should dispatch a message on user authentication', () => {
+  it('should call firebaseSignIn on signIn', () => {
     actions.signIn();
     expect(firebaseSignIn.calls.length).toBe(1);
   });
-  it('should dispatch a message on user authentication', () => {
+  it('should call firebaseSignOut on signOut', () => {
     actions.signOut();
     expect(firebaseSignOut.calls.length).toBe(1);
   });
-  it('should call newsApi.getSources()', () => {
+  it('should call newsApi.getSources() on getSources', () => {
     actions.getSources();
     expect(newsApiGetSources.mock.calls.length).toBe(1);
   });

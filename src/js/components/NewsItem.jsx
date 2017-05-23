@@ -1,16 +1,30 @@
 import React from 'react';
 
+/**
+ * This module returns a <div> component housing a news item.
+ *
+ * @function Articles
+ * @export
+ * @param {any} props - Properties for the jsx component
+ * @returns {JSX Component}
+ */
 export default function Articles(props) {
   const {
       url, author, title, description, urlToImage, publishedAt
     } = props;
 
+  /**
+   * This function handles a click on the NewsItem header,
+   * opening the article on a fresh tab.
+   *
+   * @function handleClick
+   * @param {object} e
+   */
   function handleClick(e) {
     e.preventDefault();
     window.open(url, '_blank');
   }
 
-  // const clickHandler = handleClick.bind(this);
   return (
     <div className="item">
       <div className="image">
@@ -32,6 +46,7 @@ export default function Articles(props) {
   );
 }
 
+// Proptype validation
 Articles.propTypes = {
   url: React.PropTypes.string.isRequired,
   author: React.PropTypes.string,

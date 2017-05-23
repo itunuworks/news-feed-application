@@ -12,9 +12,20 @@ import Layout from './Layout';
 import ListView from './ListView';
 import newsStore from '../store/newsStore';
 
-// Create a Parent component which helps with
-// housing other components and front-end routing.
+/**
+ * This class renders a Parent component which helps with
+ * housing other components and front-end routing.
+ *
+ * @export
+ * @class Parent
+ * @extends {React.Component}
+ */
 export default class Parent extends React.Component {
+  /**
+   * Creates an instance of Parent.
+   *
+   * @memberof Parent
+   */
   constructor() {
     super();
     // Setup initial user logIn state.
@@ -23,8 +34,10 @@ export default class Parent extends React.Component {
     };
   }
 
-  /* On component mount, set a listener to the authChanged
-     event and use it to get the current user state. */
+  /*
+  On component mount, set a listener to the authChanged
+  event and use it to get the current user state.
+  */
   componentWillMount() {
     newsStore.on('authChanged', this.getUser.bind(this));
   }
@@ -34,16 +47,24 @@ export default class Parent extends React.Component {
     newsStore.removeListener('authChanged', this.getUser.bind(this));
   }
 
-  // Fetches current user state from the store and sets it on this.state.
+  /**
+   * This function Fetches user state from the store and sets it on this.state.
+   *
+   * @function getUser
+   * @memberof Parent
+   */
   getUser() {
     this.setState({
       user: newsStore.user,
     });
   }
 
-  /* Returns a route based on the current user state.
-     If the user is signed In, it routes user to Main page.
-     Else, it re-routes user to the Home page. */
+  /**
+   * Returns a route based on the current user state.
+   * If the user is signed In, it routes user to Main page.
+   * Else, it re-routes user to the Home page.
+   *
+   **/
   render() {
     return (
       <HashRouter>

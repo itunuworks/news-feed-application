@@ -104,7 +104,52 @@
 59
 60
 61
-62</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -114,6 +159,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -122,13 +172,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,7 +197,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,12 +238,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as firebase from 'firebase';
 import { authStateChangedHandler } from '../actions/newsActions';
 &nbsp;
+/**
+ * This class represents the capabilities and properties of firebase
+ *
+ * @class Firebase
+ */
 class Firebase {
+  /**
+   * Creates an instance of Firebase.
+   *
+   * @memberof Firebase
+   */
   constructor() {
     this.firebase = firebase;
     this.initializeApp();
   }
 &nbsp;
+  /**
+   * This method initializes the firebase app.
+   *
+   * @memberof Firebase
+   */
   initializeApp() {
     this.firebase.initializeApp({
       apiKey: 'AIzaSyCI4rndHukYUe_FGD4Np2VIy64S9cXu_8Y',
@@ -183,8 +268,10 @@ class Firebase {
       storageBucket: 'my-news-project-167300.appspot.com',
       messagingSenderId: '575633828507',
     });
+&nbsp;
     this.provider = new this.firebase.auth.GoogleAuthProvider();
     this.provider.addScope('');
+    // Register the action authStateChangedHandler to handler auth state events.
     this.firebase.auth().onAuthStateChanged((user) =&gt; {
       authStateChangedHandler(user);
     });
@@ -192,6 +279,12 @@ class Firebase {
     this.signOut.bind(this);
   }
 &nbsp;
+  /**
+   * This function signs in a user with Google authentication
+   *
+   * @function signIn
+   * @memberof Firebase
+   */
 <span class="fstat-no" title="function not covered" >  si</span>gnIn() {
 <span class="cstat-no" title="statement not covered" >    this.firebase.auth().signInWithRedirect(this.provider)</span>
     .then(<span class="fstat-no" title="function not covered" >(r</span>esult) =&gt; {
@@ -199,10 +292,22 @@ class Firebase {
     });
   }
 &nbsp;
+  /**
+   * This method gets the current logged in user.
+   *
+   * @returns {GoogleUser} currentUser
+   * @function getCurrentUser
+   * @memberof Firebase
+   */
 <span class="fstat-no" title="function not covered" >  ge</span>tCurrentUser() {
 <span class="cstat-no" title="statement not covered" >    return this.firebase.auth().currentUser;</span>
   }
 &nbsp;
+  /**
+   * This method signs out the current user.
+   * @function signOut
+   * @memberof Firebase
+   */
 <span class="fstat-no" title="function not covered" >  si</span>gnOut() {
 <span class="cstat-no" title="statement not covered" >    this.firebase.auth().signOut()</span>
       .then(<span class="fstat-no" title="function not covered" >(r</span>esult) =&gt; {
@@ -232,7 +337,7 @@ export default firebaseInstance;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 22 2017 07:53:04 GMT+0100 (WAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 23 2017 02:32:35 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

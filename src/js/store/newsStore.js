@@ -1,11 +1,19 @@
 import { EventEmitter } from 'events';
 import dispatcher from '../dispatcher';
 
-/*
-Store to handle all data requests and
-recieve all dispatch broadcasts and payload.
-*/
+/**
+ * This Store is to handle all data requests and
+ * recieve all dispatch broadcasts and payload.
+ *
+ * @class NewsStore
+ * @extends {EventEmitter}
+ */
 class NewsStore extends EventEmitter {
+  /**
+   * Creates an instance of NewsStore.
+   *
+   * @memberof NewsStore
+   */
   constructor() {
     super();
 
@@ -15,26 +23,48 @@ class NewsStore extends EventEmitter {
     this.user = null;
   }
 
-  // Return the current state of the articles in store.
+  /**
+   * This function returns the current state of the articles in store.
+   *
+   * @returns {Array} articles
+   * @function fetchArticles
+   * @memberof NewsStore
+   */
   fetchArticles() {
     return this.articles;
   }
 
-  // Return the current state of the sources in store.
+  /**
+   * This function returns the current state of the sources in store.
+   *
+   * @returns {Array} sources
+   * @function fetchSources
+   * @memberof NewsStore
+   */
   fetchSources() {
     return this.sources;
   }
 
-  // Return the current user in store.
+  /**
+   * This function returns the current state of the user in store.
+   *
+   * @returns {Object} user
+   * @function getUser
+   * @memberof NewsStore
+   */
   getUser() {
     return this.user;
   }
 
-  /*
-  Handle all events from the dispatcher and resolve
-  recieved data into the respective state.
-  Also emit an even to alert component on the completion of data resolution.
-  */
+  /**
+   *  Handle all events from the dispatcher and resolve
+   *  recieved data into the respective state.
+   *  Also emit an even to alert component on the completion of data resolution.
+   *
+   * @param {object} action - The action carried out by app.
+   * @function implementActions
+   * @memberof NewsStore
+   */
   implementActions(action) {
     switch (action.type) {
       // Handle GET_ARTICLES and resolve articles.

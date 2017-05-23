@@ -1,5 +1,4 @@
 import React from 'react';
-import { Dropdown } from 'semantic-ui-react';
 
 import newsStore from '../store/newsStore';
 import * as newsActions from '../actions/newsActions';
@@ -129,28 +128,12 @@ export default class Sources extends React.Component {
         key={source.id}
         text={source.name}
       />);
-    const newsSources = sources.map(
-      source => (
-        {
-          key: source.id,
-          value: source.id,
-          text: source.name
-        }
-      ));
-    const filterOptions = filters.map(
-      filter => (
-        {
-          key: filter,
-          value: filter,
-          text: filter
-        }
-      ));
     return (
       <div>
-        <div>
+        <div className="ui center aligned text">
           Select Source
           <select
-            id="selector" className="ui search dropdown"
+            id="selector" className="ui search dropdown ui left floated"
             onChange={() => {
               this.reloadArticles(false);
             }}
@@ -159,21 +142,13 @@ export default class Sources extends React.Component {
           </select>
           Select Filter
           <select
-            id="filterSelector" className="ui search dropdown"
+            id="filterSelector" className="ui search dropdown ui right floated"
             onChange={() => {
               this.reloadArticles(true);
             }}
           >
             {filterComponents}
           </select>
-          <Dropdown
-            placeholder="News Sources"
-            search selection options={newsSources}
-          />
-          <Dropdown
-            placeholder="SortBy"
-            search selection options={filterOptions}
-          />
         </div>
       </div>
     );

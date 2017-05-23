@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">71.43% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/7</span>
+        <span class='fraction'>10/12</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,13 +35,13 @@
         <span class='fraction'>5/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">71.43% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/7</span>
+        <span class='fraction'>10/12</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -109,7 +109,15 @@
 64
 65
 66
-67</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+67
+68
+69
+70
+71
+72
+73
+74
+75</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -119,6 +127,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -128,6 +137,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,6 +148,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -154,6 +166,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,6 +182,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,72 +198,80 @@ import firebaseApi from '../api/firebaseApi';
 /**
  * This function handles the signIn event.
  *
+ * @function signIn
  * @export signIn
  */
-export function signIn() {
+export const signIn = () =&gt; {
   firebaseApi.signIn();
-}
+};
 &nbsp;
 /**
  * This function handles the signOut event.
  *
+ * @function signOut
  * @export signOut
  */
-export function signOut() {
+export const signOut = () =&gt; {
   firebaseApi.signOut();
-}
+};
 &nbsp;
 /**
  * This function captures the authStateChanged event from the firebaseApi
  * and resolves the new user.
+ *
+ * @function authStateChangedHandler
  * @export authStateChangedHandler
  * @param {object} user - The current signed in User. Undefined if signed Out.
  */
-export function authStateChangedHandler(user) {
+export const authStateChangedHandler = (user) =&gt; {
   dispatcher.dispatch({
     type: 'AUTH_CHANGED',
     user,
   });
-}
+};
 &nbsp;
 /**
  * This function requests for articles from the NewsApi
  * using the source and sortby params, the returns same
  * once api is done fetching.
  * It also dispatches the GET_ARTICLES message and fetched articles.
+ *
+ * @function getArticles
  * @export getArticles
  * @param {String} source - Id of the news source.
  * @param {String} sortBy - Type of sort required.
  */
-export function getArticles(source, sortBy) {
+export const getArticles = (source, sortBy) =&gt; {
   NewsApi.getArticles(source, sortBy, <span class="fstat-no" title="function not covered" >(a</span>rticles) =&gt; {
 <span class="cstat-no" title="statement not covered" >    dispatcher.dispatch({</span>
       type: 'GET_ARTICLES',
       articles,
     });
   });
-}
+};
 &nbsp;
 /**
  * This function requests for available sources from the NewsApi,
  * It recieves the sources and dispatches them to the store.
+ *
+ * @function getSources
  * @export getSources
  */
-export function getSources() {
+export const getSources = () =&gt; {
   NewsApi.getSources(<span class="fstat-no" title="function not covered" >(s</span>ources) =&gt; {
 <span class="cstat-no" title="statement not covered" >    dispatcher.dispatch({</span>
       type: 'GET_SOURCES',
       sources,
     });
   });
-}
+};
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 23 2017 02:32:35 GMT+0100 (WAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 23 2017 10:48:49 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

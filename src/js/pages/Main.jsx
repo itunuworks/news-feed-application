@@ -14,21 +14,21 @@ import * as newsActions from '../actions/newsActions';
  */
 const Main = () => (
   <div>
-    <div className="ui large top hidden menu">
-      <div className="ui container">
-        <a className="item" href="/#/home">Home</a>
-        <a className="active item" href="/#/main">Main</a>
-        <a className="item" href="/#/favorites">My Lists</a>
-        <div className="right menu">
-          <div className="item">
-            <Button primary onClick={newsActions.signOut}>Sign Out</Button>
+    <div className="ui container">
+      <div className="ui large top hidden menu">
+        <div className="ui container">
+          <a className="item" href="/#/home">Home</a>
+          <a className="active item" href="/#/main">Main</a>
+          <a className="item" href="/#/favorites">My Lists</a>
+          <div className="right menu">
+            <div className="item">
+              <Button primary onClick={newsActions.signOut}>Sign Out</Button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div className="ui container text">
-      <h1>NEWS ON DEMAND <small>
-        <i>Exposition at its best...</i></small>
+      <h1 className="ui center aligned header">NEWS ON DEMAND <small>
+        <i>exposition at its best...</i></small>
       </h1>
       <div />
       <Sources />

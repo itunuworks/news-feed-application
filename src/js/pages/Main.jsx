@@ -4,6 +4,14 @@ import Sources from '../components/Sources';
 import Articles from '../components/Articles';
 import * as newsActions from '../actions/newsActions';
 
+/**
+ * This function returns the Main component which displays and houses
+ * other components used in displaying the projects Main page.
+ *
+ * @function Main
+ * @export
+ * @returns (JSX)
+ */
 export default function Main() {
   return (
     <div>
@@ -20,8 +28,8 @@ export default function Main() {
         </div>
       </div>
       <div className="ui container text">
-        <h1>NEWS HUB <small>
-          <i>Multidimensional news on demand...</i></small>
+        <h1>NEWS ON DEMAND <small>
+          <i>Exposition at its best...</i></small>
         </h1>
         <div />
         <Sources />

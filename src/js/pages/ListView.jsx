@@ -1,6 +1,14 @@
 import React from 'react';
 import * as newsActions from '../actions/newsActions';
 
+/**
+ * This function returns the Listview component which displays
+ * The private lists built in the app.
+ *
+ * @function ListView
+ * @export
+ * @returns {JSX Component}
+ */
 export default function ListView() {
   return (
     <div>

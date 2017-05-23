@@ -1,5 +1,13 @@
 import React from 'react';
 
+/**
+ * This function returns a div component containing several other components.
+ *
+ * @function Layout
+ * @export
+ * @param {object} props
+ * @returns {JSX Component}
+ */
 export default function Layout(props) {
   return (
     <div>
@@ -10,6 +18,7 @@ export default function Layout(props) {
   );
 }
 
+// Proptype validation.
 Layout.propTypes = {
   children: React.PropTypes.element,
 };

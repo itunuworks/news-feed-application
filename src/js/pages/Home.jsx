@@ -1,7 +1,13 @@
 import React from 'react';
 import * as newsActions from '../actions/newsActions';
 
-// This component holds the home page, sign in and sign out details.
+/**
+ * This component holds the home page, sign in and sign out details.
+ *
+ * @export
+ * @function Home
+ * @returns {JSX Component}
+ */
 export default function Home() {
   return (
     <div>

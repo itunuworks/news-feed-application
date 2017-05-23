@@ -8,11 +8,11 @@ import * as newsActions from '../actions/newsActions';
  * @function Home
  * @returns {JSX Component}
  */
-export default function Home() {
-  return (
-    <div>
-      <h1>Hi, I am the HOME page</h1>
-      <button onClick={newsActions.signIn}>Sign In</button>
-    </div>
-  );
-}
+const Home = () => (
+  <div>
+    <h1>Hi, I am the HOME page</h1>
+    <button onClick={newsActions.signIn}>Sign In</button>
+  </div>
+);
+
+export default Home;

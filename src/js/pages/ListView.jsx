@@ -9,12 +9,12 @@ import * as newsActions from '../actions/newsActions';
  * @export
  * @returns {JSX Component}
  */
-export default function ListView() {
-  return (
-    <div>
-      <h1>Hi, I am the List view page</h1>
-      <button onClick={newsActions.signOut}>Sign Out</button>
-    </div>
-  );
-}
+const ListView = () => (
+  <div>
+    <h1>Hi, I am the List view page</h1>
+    <button onClick={newsActions.signOut}>Sign Out</button>
+  </div>
+);
+
+export default ListView;
 

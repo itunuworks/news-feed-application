@@ -12,29 +12,29 @@ import * as newsActions from '../actions/newsActions';
  * @export
  * @returns (JSX)
  */
-export default function Main() {
-  return (
-    <div>
-      <div className="ui large top hidden menu">
-        <div className="ui container">
-          <a className="item" href="/#/home">Home</a>
-          <a className="active item" href="/#/main">Main</a>
-          <a className="item" href="/#/favorites">My Lists</a>
-          <div className="right menu">
-            <div className="item">
-              <Button primary onClick={newsActions.signOut}>Sign Out</Button>
-            </div>
+const Main = () => (
+  <div>
+    <div className="ui large top hidden menu">
+      <div className="ui container">
+        <a className="item" href="/#/home">Home</a>
+        <a className="active item" href="/#/main">Main</a>
+        <a className="item" href="/#/favorites">My Lists</a>
+        <div className="right menu">
+          <div className="item">
+            <Button primary onClick={newsActions.signOut}>Sign Out</Button>
           </div>
         </div>
       </div>
-      <div className="ui container text">
-        <h1>NEWS ON DEMAND <small>
-          <i>Exposition at its best...</i></small>
-        </h1>
-        <div />
-        <Sources />
-        <Articles />
-      </div>
     </div>
-  );
-}
+    <div className="ui container text">
+      <h1>NEWS ON DEMAND <small>
+        <i>Exposition at its best...</i></small>
+      </h1>
+      <div />
+      <Sources />
+      <Articles />
+    </div>
+  </div>
+);
+
+export default Main;

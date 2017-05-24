@@ -1,4 +1,5 @@
 import React from 'react';
+import { Dropdown } from 'semantic-ui-react';
 
 import newsStore from '../store/newsStore';
 import * as newsActions from '../actions/newsActions';
@@ -27,6 +28,7 @@ export default class Sources extends React.Component {
       sources: newsStore.fetchSources(),
       filters: ['top'],
     };
+    this.currentSource = '';
     this.getSources = this.getSources.bind(this);
     this.reloadArticles = this.reloadArticles.bind(this);
   }
@@ -84,8 +86,7 @@ export default class Sources extends React.Component {
    * @function reloadArticles
    * @memberof Sources
    */
-  reloadArticles(filter) {
-    const selector = document.getElementById('selector');
+  reloadArticles(filter, sourceValue) {
     const filterSelector = document.getElementById('filterSelector');
 
     /*
@@ -94,17 +95,16 @@ export default class Sources extends React.Component {
     */
     if (filter) {
       this.newsActions.getArticles(
-        selector.options[selector.selectedIndex].value,
+        sourceValue,
         filterSelector.options[filterSelector.selectedIndex].value);
     } else {
       const { sources } = this.state;
-
-      this.newsActions.getArticles(
-        selector.options[selector.selectedIndex].value
-        );
+      const sourceIds = sources.map(source => source.id);
+      this.currentSource = sourceValue;
       this.setState({
-        filters: sources[selector.selectedIndex].sortBysAvailable,
+        filters: sources[sourceIds.indexOf(sourceValue)].sortBysAvailable,
       });
+      this.newsActions.getArticles(sourceValue);
       // Make the filterSelector select its first value.
       filterSelector.selectedIndex = 0;
     }
@@ -122,33 +122,36 @@ export default class Sources extends React.Component {
     const { sources, filters } = this.state;
     const filterComponents = filters.map(
       filter => <Dropdownitem value={filter} key={filter} text={filter} />);
-    const sourceComponents = sources.map(
-      source => <Dropdownitem
-        value={source.id}
-        key={source.id}
-        text={source.name}
-      />);
+    const newsSources = sources.map(
+     source => (
+       {
+         key: source.id,
+         value: source.id,
+         text: source.name
+       }
+      ));
     return (
       <div>
         <div className="ui center aligned text">
-          Select Source
-          <select
-            id="selector" className="ui search dropdown ui left floated"
-            onChange={() => {
-              this.reloadArticles(false);
-            }}
-          >
-            {sourceComponents}
-          </select>
           Select Filter
           <select
-            id="filterSelector" className="ui search dropdown ui right floated"
+            id="filterSelector" className="ui search dropdown right floated"
             onChange={() => {
-              this.reloadArticles(true);
+              this.reloadArticles(true, this.currentSource);
             }}
           >
             {filterComponents}
           </select>
+          <Dropdown
+            placeholder="News Sources"
+            search selection options={newsSources}
+            onChange={(syntheticEvent, payload, state = true) => {
+              console.log(syntheticEvent);
+              console.log(payload);
+              console.log(state);
+              this.reloadArticles(false, payload.value);
+            }}
+          />
         </div>
       </div>
     );

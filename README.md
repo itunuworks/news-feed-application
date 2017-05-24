@@ -10,9 +10,6 @@
   - Sign In with a Google Account.
   - View news headlines from multiple news service providers at a click.
   - Sort news by **top**, **latest** and **Popular**
-  - Invite peers to view news article **by email**.
-  - Create custom lists and save articles to them.
-  - Delete saved articles and lists.
 - Click **[here](https://news-feed-application.herokuapp.com/#/home)** to access the app on Heroku
 
 ## Dependencies
@@ -69,3 +66,10 @@ JEST by Facebook was used to test the following parts of the code.
 - firebaseApi.js
 - newsAPI.js
 - newsStore.js
+
+##Contributing
+You are very welcome to grow this project and make it even more useful and complete. 
+To participate, simply fork or clone the project and make your pull requests on features you'd like to see.
+
+## License
+ISC

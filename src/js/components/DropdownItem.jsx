@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * This Module returns an option item for a dropdownbox.
@@ -17,8 +18,8 @@ const DropdownItem = (props) => {
 
 // Proptype validation.
 DropdownItem.propTypes = {
-  value: React.PropTypes.string.isRequired,
-  text: React.PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default DropdownItem;

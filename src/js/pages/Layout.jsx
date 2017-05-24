@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * This function returns a div component containing several other components.
@@ -18,7 +19,7 @@ const Layout = props => (
 
 // Proptype validation.
 Layout.propTypes = {
-  children: React.PropTypes.element,
+  children: PropTypes.element,
 };
 
 Layout.defaultProps = {

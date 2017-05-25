@@ -49,10 +49,7 @@ class Firebase {
    * @memberof Firebase
    */
   signIn() {
-    this.firebase.auth().signInWithRedirect(this.provider)
-    .then((result) => {
-      console.log(result);
-    });
+    this.firebase.auth().signInWithRedirect(this.provider);
   }
 
   /**
@@ -72,10 +69,7 @@ class Firebase {
    * @memberof Firebase
    */
   signOut() {
-    this.firebase.auth().signOut()
-      .then((result) => {
-        console.log(result);
-      });
+    this.firebase.auth().signOut();
   }
 /*
   createUserList(listName) {

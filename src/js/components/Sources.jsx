@@ -145,10 +145,7 @@ export default class Sources extends React.Component {
           <Dropdown
             placeholder="News Sources"
             search selection options={newsSources}
-            onChange={(syntheticEvent, payload, state = true) => {
-              console.log(syntheticEvent);
-              console.log(payload);
-              console.log(state);
+            onChange={(syntheticEvent, payload) => {
               this.reloadArticles(false, payload.value);
             }}
           />

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * This module returns a <div> component housing a news item.
@@ -47,12 +48,12 @@ const Articles = (props) => {
 
 // Proptype validation
 Articles.propTypes = {
-  url: React.PropTypes.string.isRequired,
-  author: React.PropTypes.string,
-  title: React.PropTypes.string.isRequired,
-  description: React.PropTypes.string.isRequired,
-  urlToImage: React.PropTypes.string.isRequired,
-  publishedAt: React.PropTypes.string,
+  url: PropTypes.string.isRequired,
+  author: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  urlToImage: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string,
 };
 
 Articles.defaultProps = {

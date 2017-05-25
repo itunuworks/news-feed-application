@@ -18,7 +18,6 @@ class NewsApi {
    * @param {String} sortBy - The String id of the sort method needed.
    * @param {Function} callback - Function to be passed fetched data.
    * @function getArticles
-   *
    * @memberof NewsApi
    */
   static getArticles(source, sortBy, callback) {
@@ -35,10 +34,7 @@ class NewsApi {
       json: true,
     };
     rp(opts)
-      .then(data => callback(data.articles))
-      .catch((error) => {
-        console.log(error);
-      });
+      .then(data => callback(data.articles));
   }
 
   /**
@@ -48,7 +44,6 @@ class NewsApi {
    * @static
    * @param {function} callback - Function to be passed fetched data.
    * @function getSources
-   *
    * @memberof NewsApi
    */
   static getSources(callback) {
@@ -63,10 +58,7 @@ class NewsApi {
       json: true,
     };
     rp(opts)
-      .then(data => callback(data.sources))
-      .catch((error) => {
-        console.log(error);
-      });
+      .then(data => callback(data.sources));
   }
 }
 

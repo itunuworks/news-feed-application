@@ -12,18 +12,18 @@ import * as newsActions from '../actions/newsActions';
 const Home = () => (
   <div>
     <Container>
-      <div className="ui large top hidden menu">
+      <div className="ui large top fixed inverted hidden menu">
         <div className="ui container">
           <a className="active item" href="/#/home">Home</a>
-          <a className="item" href="/#/main">Main</a>
-          <a className="item" href="/#/favorites">My Lists</a>
         </div>
       </div>
       <h1
         className="ui center aligned header"
-        style={{ marginTop: '50px' }}
-      >Welcome to NEWS ON DEMAND!!!</h1>
-      <h3 className="ui center aligned header">Sign in to begin.</h3>
+        style={{ marginTop: '200px', fontSize: '-webkit-xxx-large' }}
+      >NEWS ON DEMAND!!!</h1>
+      <h3 className="ui center aligned header">
+        Sign in <b className="ui red header">with Google </b>to begin.
+      </h3>
       <span>
         <Button
           size="massive"
@@ -34,6 +34,11 @@ const Home = () => (
           Sign In
         </Button>
       </span>
+      <div className="ui bottom fixed menu">
+        <div className="ui container center aligned">
+          copyright
+        </div>
+      </div>
     </Container>
   </div>
 );

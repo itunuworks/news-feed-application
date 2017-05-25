@@ -1,7 +1,7 @@
 import rp from 'request-promise';
 
 const host = 'https://newsapi.org/v1/';
-const apiKey = '213327409d384371851777e7c7f78dfe';// use ENV to store keys.
+const apiKey = process.env.NEWSAPI_KEY;// use ENV to store keys.
 
 /**
  * This class represents the state, properties and events of NewsApi

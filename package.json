@@ -47,6 +47,7 @@
     "babel-preset-node6": "^11.0.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "dotenv-webpack": "^1.4.5",
     "express": "^4.15.2",
     "firebase": "^3.9.0",
     "flux": "^3.1.2",

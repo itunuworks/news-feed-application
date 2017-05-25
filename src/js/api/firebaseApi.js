@@ -24,12 +24,12 @@ class Firebase {
    */
   initializeApp() {
     this.firebase.initializeApp({
-      apiKey: 'AIzaSyCI4rndHukYUe_FGD4Np2VIy64S9cXu_8Y',
-      authDomain: 'my-news-project-167300.firebaseapp.com',
-      databaseURL: 'https://my-news-project-167300.firebaseio.com',
-      projectId: 'my-news-project-167300',
-      storageBucket: 'my-news-project-167300.appspot.com',
-      messagingSenderId: '575633828507',
+      apiKey: process.env.FIREBASE_API_KEY,
+      authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+      databaseURL: process.env.FIREBASE_DATABASE_URL,
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+      messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
     });
 
     this.provider = new this.firebase.auth.GoogleAuthProvider();

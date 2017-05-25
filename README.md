@@ -67,7 +67,7 @@ JEST by Facebook was used to test the following parts of the code.
 - newsAPI.js
 - newsStore.js
 
-##Contributing
+## Contributing
 You are very welcome to grow this project and make it even more useful and complete. 
 To participate, simply fork or clone the project and make your pull requests on features you'd like to see.
 

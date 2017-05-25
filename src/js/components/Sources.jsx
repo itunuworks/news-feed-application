@@ -63,9 +63,6 @@ export default class Sources extends React.Component {
     this.setState({
       sources: newsStore.fetchSources(),
     });
-    if (this.state.sources.length > 0) {
-      this.reloadArticles(false);
-    }
   }
 
   /**
@@ -132,23 +129,26 @@ export default class Sources extends React.Component {
       ));
     return (
       <div>
-        <div className="ui center aligned text">
-          Select Filter
+        <div
+          className="ui right aligned container text" style={{ margin: '20px' }}
+        >
+          <Dropdown
+            placeholder="News Sources"
+            fluid search selection options={newsSources}
+            style={{ float: 'left', width: '60%' }}
+            onChange={(syntheticEvent, payload) => {
+              this.reloadArticles(false, payload.value);
+            }}
+          />
           <select
             id="filterSelector" className="ui search dropdown right floated"
+            style={{ width: '20%' }}
             onChange={() => {
               this.reloadArticles(true, this.currentSource);
             }}
           >
             {filterComponents}
           </select>
-          <Dropdown
-            placeholder="News Sources"
-            search selection options={newsSources}
-            onChange={(syntheticEvent, payload) => {
-              this.reloadArticles(false, payload.value);
-            }}
-          />
         </div>
       </div>
     );

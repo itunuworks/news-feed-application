@@ -12,16 +12,20 @@ import * as newsActions from '../actions/newsActions';
  */
 const ListView = () => (
   <div>
-    <div className="ui large top hidden menu">
+    <div className="ui large top fixed inverted hidden menu">
       <div className="ui container">
-        <a className="item" href="/#/home">Home</a>
         <a className="item" href="/#/main">Main</a>
         <a className="active item" href="/#/favorites">My Lists</a>
         <div className="right menu">
           <div className="item">
-            <Button primary onClick={newsActions.signOut}>Sign Out</Button>
+            <Button onClick={newsActions.signOut}>Sign Out</Button>
           </div>
         </div>
+      </div>
+    </div>
+    <div className="ui bottom fixed menu">
+      <div className="ui container center aligned">
+        copyright
       </div>
     </div>
   </div>

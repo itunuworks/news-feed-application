@@ -99,7 +99,7 @@ export default class Sources extends React.Component {
       const sourceIds = sources.map(source => source.id);
       this.currentSource = sourceValue;
       this.setState({
-        filters: sources[sourceIds.indexOf(sourceValue)].sortBysAvailable,
+        filters: sources[sourceIds.indexOf(sourceValue)].sortBysAvailable
       });
       this.newsActions.getArticles(sourceValue);
       // Make the filterSelector select its first value.
@@ -150,6 +150,13 @@ export default class Sources extends React.Component {
             {filterComponents}
           </select>
         </div>
+        <h1
+          id="placeHolderString"
+          className="ui center aligned disabled header"
+          style={{
+            fontSize: '-webkit-xxx-large', margin: '80px', marginTop: '150px'
+          }}
+        >Select a NEWS SOURCE to begin</h1>
       </div>
     );
   }

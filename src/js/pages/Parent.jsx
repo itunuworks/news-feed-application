@@ -85,7 +85,7 @@ export default class Parent extends React.Component {
             <Route
               path="/main" render={() => (
                 this.state.user ? (
-                  <Main />
+                  <Main new="true" />
                 ) : (
                   <Redirect to="/home" />
                 )

@@ -11,7 +11,8 @@
   "jest": {
     "moduleFileExtensions": [
       "es6",
-      "js"
+      "js",
+      "jsx"
     ],
     "collectCoverage": true,
     "transform": {
@@ -52,8 +53,9 @@
     "flux": "^3.1.2",
     "history": "^4.6.1",
     "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "react": "^15.5.1",
+    "react-addons-test-utils": "^15.5.1",
+    "react-dom": "^15.5.1",
     "react-google-login": "^2.8.9",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
@@ -61,10 +63,12 @@
     "request-promise": "^4.2.0",
     "router": "^1.3.0",
     "semantic-ui-react": "^0.68.3",
+    "sinon": "^2.3.2",
     "webpack": "^2.4.1"
   },
   "devDependencies": {
     "babel-jest": "^20.0.1",
+    "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",

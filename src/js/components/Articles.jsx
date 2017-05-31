@@ -31,7 +31,7 @@ export default class Articles extends React.Component {
    *
    * @memberof Articles
    */
-  componentWillMount() {
+  componentDidMount() {
     newsStore.on('articlesChanged', this.getArticles);
   }
 

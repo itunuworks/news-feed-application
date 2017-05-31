@@ -106,6 +106,7 @@ export default class Sources extends React.Component {
         currentFilter:
           sources[sourceIds.indexOf(sourceValue)].sortBysAvailable[0]
       });
+      window.localStorage.removeItem('showPlaceholder');
       this.newsActions.getArticles(sourceValue);
     }
   }
@@ -164,9 +165,13 @@ export default class Sources extends React.Component {
           id="placeHolderString"
           className="ui center aligned disabled header"
           style={{
-            fontSize: '-webkit-xxx-large', margin: '80px', marginTop: '150px'
+            fontSize: '-webkit-xxx-large',
+            margin: '80px',
+            marginTop: '150px',
+            display:
+              window.localStorage.getItem('showPlaceholder') ? 'block' : 'none'
           }}
-        >Select a NEWS SOURCE to begin</h1>
+        >To begin, select a NEWS SOURCE</h1>
       </div>
     );
   }

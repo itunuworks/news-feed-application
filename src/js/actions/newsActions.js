@@ -10,6 +10,9 @@ import firebaseApi from '../api/firebaseApi';
  */
 export const signIn = () => {
   firebaseApi.signIn();
+  dispatcher.dispatch({
+    type: 'AUTH_PENDING',
+  });
 };
 
 /**

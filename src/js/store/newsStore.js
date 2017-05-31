@@ -85,6 +85,10 @@ class NewsStore extends EventEmitter {
         this.emit('authChanged');
         break;
       }
+      case 'AUTH PENDING': {
+        this.emit('authPending');
+        break;
+      }
       default: {
         break;
       }

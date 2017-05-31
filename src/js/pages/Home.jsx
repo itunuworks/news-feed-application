@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Container } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { Button, Container, Dimmer, Header, Icon } from 'semantic-ui-react';
 import * as newsActions from '../actions/newsActions';
 
 /**
@@ -9,7 +10,7 @@ import * as newsActions from '../actions/newsActions';
  * @function Home
  * @returns {JSX Component}
  */
-const Home = () => (
+const Home = props => (
   <div>
     <Container>
       <div className="ui large top fixed inverted hidden menu">
@@ -39,8 +40,18 @@ const Home = () => (
           copyright
         </div>
       </div>
+      <Dimmer active={props.pendingState}>
+        <Header as="h2" icon inverted>
+          <Icon name="coffee" />
+          Logging you in, please wait...
+        </Header>
+      </Dimmer>
     </Container>
   </div>
 );
+
+Home.propTypes = {
+  pendingState: PropTypes.bool.isRequired,
+};
 
 export default Home;

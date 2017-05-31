@@ -1,12 +1,15 @@
 // .babelrc
 {
   "presets": [
-    ["node6"]
+    "react", "node6"
   ],
 
   "env": {
     "test": {
-      "plugins": ["transform-es2015-modules-commonjs"]
+      "plugins": [
+        "react-html-attrs",
+        "transform-es2015-modules-commonjs"
+      ]
     }
   }
 }

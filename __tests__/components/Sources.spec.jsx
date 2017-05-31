@@ -3,8 +3,10 @@ import { mount, shallow } from 'enzyme';
 import sinon from 'sinon';
 import Sources from '../../src/js/components/Sources';
 import newsStore from '../../src/js/store/newsStore';
+import localStorage from '../../src/js/__mocks__/localStorageMock';
 
 describe('The Sources Component', () => {
+  window.localStorage = localStorage;
   it('should render as a member of class item', () => {
     const wrapper = shallow(<Sources />);
     expect(wrapper.is('.item.container'));

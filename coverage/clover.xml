@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1496237820024" clover="3.2.0">
-  <project timestamp="1496237820024" name="All files">
-    <metrics statements="103" coveredstatements="80" conditionals="6" coveredconditionals="4" methods="44" coveredmethods="29" elements="153" coveredelements="113" complexity="0" loc="103" ncloc="103" packages="5" files="9" classes="9">
+<coverage generated="1496252101144" clover="3.2.0">
+  <project timestamp="1496252101145" name="All files">
+    <metrics statements="107" coveredstatements="81" conditionals="9" coveredconditionals="5" methods="44" coveredmethods="29" elements="160" coveredelements="115" complexity="0" loc="107" ncloc="107" packages="5" files="9" classes="9">
       <package name="js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="dispatcher.js" path="/Users/andeladeveloper/Documents/Projects/news-feed-application/src/js/dispatcher.js">
@@ -9,21 +9,22 @@
         </file>
       </package>
       <package name="js.actions">
-        <metrics statements="12" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="5"/>
+        <metrics statements="13" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="5"/>
         <file name="newsActions.js" path="/Users/andeladeveloper/Documents/Projects/news-feed-application/src/js/actions/newsActions.js">
-          <metrics statements="12" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="5"/>
+          <metrics statements="13" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="5"/>
           <line num="11" count="4" type="stmt"/>
           <line num="12" count="1" type="stmt"/>
-          <line num="21" count="4" type="stmt"/>
-          <line num="22" count="1" type="stmt"/>
-          <line num="33" count="4" type="stmt"/>
-          <line num="34" count="4" type="stmt"/>
-          <line num="51" count="4" type="stmt"/>
-          <line num="52" count="1" type="stmt"/>
-          <line num="53" count="0" type="stmt"/>
-          <line num="67" count="4" type="stmt"/>
-          <line num="68" count="6" type="stmt"/>
-          <line num="69" count="0" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="24" count="4" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="36" count="4" type="stmt"/>
+          <line num="37" count="4" type="stmt"/>
+          <line num="54" count="4" type="stmt"/>
+          <line num="55" count="1" type="stmt"/>
+          <line num="56" count="0" type="stmt"/>
+          <line num="70" count="4" type="stmt"/>
+          <line num="71" count="6" type="stmt"/>
+          <line num="72" count="0" type="stmt"/>
         </file>
       </package>
       <package name="js.api">
@@ -57,7 +58,7 @@
         </file>
       </package>
       <package name="js.components">
-        <metrics statements="50" coveredstatements="36" conditionals="2" coveredconditionals="0" methods="22" coveredmethods="15"/>
+        <metrics statements="51" coveredstatements="36" conditionals="4" coveredconditionals="1" methods="22" coveredmethods="15"/>
         <file name="Articles.jsx" path="/Users/andeladeveloper/Documents/Projects/news-feed-application/src/js/components/Articles.jsx">
           <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5"/>
           <line num="21" count="6" type="stmt"/>
@@ -91,7 +92,7 @@
           <line num="61" count="2" type="stmt"/>
         </file>
         <file name="Sources.jsx" path="/Users/andeladeveloper/Documents/Projects/news-feed-application/src/js/components/Sources.jsx">
-          <metrics statements="27" coveredstatements="17" conditionals="2" coveredconditionals="0" methods="12" coveredmethods="8"/>
+          <metrics statements="28" coveredstatements="17" conditionals="4" coveredconditionals="1" methods="12" coveredmethods="8"/>
           <line num="22" count="4" type="stmt"/>
           <line num="23" count="4" type="stmt"/>
           <line num="25" count="4" type="stmt"/>
@@ -111,20 +112,21 @@
           <line num="102" count="0" type="stmt"/>
           <line num="103" count="0" type="stmt"/>
           <line num="109" count="0" type="stmt"/>
-          <line num="122" count="4" type="stmt"/>
+          <line num="110" count="0" type="stmt"/>
           <line num="123" count="4" type="stmt"/>
-          <line num="125" count="0" type="stmt"/>
-          <line num="131" count="4" type="stmt"/>
-          <line num="133" count="4" type="stmt"/>
-          <line num="139" count="4" type="stmt"/>
-          <line num="150" count="1" type="stmt"/>
-          <line num="159" count="1" type="stmt"/>
+          <line num="124" count="4" type="stmt"/>
+          <line num="126" count="0" type="stmt"/>
+          <line num="132" count="4" type="stmt"/>
+          <line num="134" count="4" type="stmt"/>
+          <line num="140" count="4" type="stmt"/>
+          <line num="151" count="1" type="stmt"/>
+          <line num="160" count="1" type="stmt"/>
         </file>
       </package>
       <package name="js.store">
-        <metrics statements="20" coveredstatements="20" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+        <metrics statements="22" coveredstatements="20" conditionals="5" coveredconditionals="4" methods="5" coveredmethods="5"/>
         <file name="newsStore.js" path="/Users/andeladeveloper/Documents/Projects/news-feed-application/src/js/store/newsStore.js">
-          <metrics statements="20" coveredstatements="20" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+          <metrics statements="22" coveredstatements="20" conditionals="5" coveredconditionals="4" methods="5" coveredmethods="5"/>
           <line num="18" count="3" type="stmt"/>
           <line num="21" count="3" type="stmt"/>
           <line num="22" count="3" type="stmt"/>
@@ -132,7 +134,7 @@
           <line num="34" count="10" type="stmt"/>
           <line num="45" count="6" type="stmt"/>
           <line num="56" count="3" type="stmt"/>
-          <line num="69" count="5" type="cond" truecount="4" falsecount="0"/>
+          <line num="69" count="5" type="cond" truecount="4" falsecount="1"/>
           <line num="72" count="1" type="stmt"/>
           <line num="73" count="1" type="stmt"/>
           <line num="74" count="1" type="stmt"/>
@@ -142,9 +144,11 @@
           <line num="84" count="2" type="stmt"/>
           <line num="85" count="2" type="stmt"/>
           <line num="86" count="2" type="stmt"/>
-          <line num="89" count="1" type="stmt"/>
-          <line num="98" count="3" type="stmt"/>
-          <line num="99" count="3" type="stmt"/>
+          <line num="89" count="0" type="stmt"/>
+          <line num="90" count="0" type="stmt"/>
+          <line num="93" count="1" type="stmt"/>
+          <line num="102" count="3" type="stmt"/>
+          <line num="103" count="3" type="stmt"/>
         </file>
       </package>
     </metrics>

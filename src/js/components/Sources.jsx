@@ -26,7 +26,7 @@ export default class Sources extends React.Component {
     this.reloadSources();
     this.state = {
       sources: newsStore.fetchSources(),
-      filters: ['top'],
+      filters: ['top']
     };
     this.currentSource = '';
     this.getSources = this.getSources.bind(this);
@@ -99,8 +99,9 @@ export default class Sources extends React.Component {
       const sourceIds = sources.map(source => source.id);
       this.currentSource = sourceValue;
       this.setState({
-        filters: sources[sourceIds.indexOf(sourceValue)].sortBysAvailable
+        filters: sources[sourceIds.indexOf(sourceValue)].sortBysAvailable,
       });
+      window.localStorage.removeItem('showPlaceholder');
       this.newsActions.getArticles(sourceValue);
       // Make the filterSelector select its first value.
       filterSelector.selectedIndex = 0;
@@ -154,9 +155,13 @@ export default class Sources extends React.Component {
           id="placeHolderString"
           className="ui center aligned disabled header"
           style={{
-            fontSize: '-webkit-xxx-large', margin: '80px', marginTop: '150px'
+            fontSize: '-webkit-xxx-large',
+            margin: '80px',
+            marginTop: '150px',
+            display:
+              window.localStorage.getItem('showPlaceholder') ? 'block' : 'none'
           }}
-        >Select a NEWS SOURCE to begin</h1>
+        >To begin, select a NEWS SOURCE</h1>
       </div>
     );
   }

@@ -31,6 +31,7 @@ export default class Parent extends React.Component {
     // Setup initial user logIn state.
     this.state = {
       user: null,
+      authPending: true,
     };
   }
 
@@ -40,11 +41,16 @@ export default class Parent extends React.Component {
   */
   componentWillMount() {
     newsStore.on('authChanged', this.getUser.bind(this));
+    newsStore.on('authPending', this.setPendingState);
+    window.localStorage.setItem(
+      'showPlaceholder', true
+    );
   }
 
   // Remove the added listener once the component is unmounted.
   componentWillUnmount() {
-    newsStore.removeListener('authChanged', this.getUser.bind(this));
+    newsStore.removeListener('authChanged');
+    newsStore.removeListener('authPending');
   }
 
   /**
@@ -56,6 +62,13 @@ export default class Parent extends React.Component {
   getUser() {
     this.setState({
       user: newsStore.user,
+      authPending: false,
+    });
+  }
+
+  setPendingState() {
+    this.setState({
+      authPending: true,
     });
   }
 
@@ -78,7 +91,7 @@ export default class Parent extends React.Component {
                 this.state.user ? (
                   <Redirect to="/main" />
                 ) : (
-                  <Home />
+                  <Home pendingState={this.state.authPending} />
                 )
               )}
             />

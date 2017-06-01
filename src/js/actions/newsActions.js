@@ -6,6 +6,7 @@ import firebaseApi from '../api/firebaseApi';
  * This function handles the signIn event.
  *
  * @function signIn
+ * @returns {void}
  * @export signIn
  */
 export const signIn = () => {
@@ -19,6 +20,7 @@ export const signIn = () => {
  * This function handles the signOut event.
  *
  * @function signOut
+ * @returns {void}
  * @export signOut
  */
 export const signOut = () => {
@@ -31,6 +33,7 @@ export const signOut = () => {
  *
  * @function authStateChangedHandler
  * @export authStateChangedHandler
+ * @returns {void}
  * @param {object} user - The current signed in User. Undefined if signed Out.
  */
 export const authStateChangedHandler = (user) => {
@@ -48,8 +51,9 @@ export const authStateChangedHandler = (user) => {
  *
  * @function getArticles
  * @export getArticles
- * @param {String} source - Id of the news source.
- * @param {String} sortBy - Type of sort required.
+ * @returns {void}
+ * @param {string} source - Id of the news source.
+ * @param {string} sortBy - Type of sort required.
  */
 export const getArticles = (source, sortBy) => {
   NewsApi.getArticles(source, sortBy, (articles) => {
@@ -65,6 +69,7 @@ export const getArticles = (source, sortBy) => {
  * It recieves the sources and dispatches them to the store.
  *
  * @function getSources
+ * @returns {void}
  * @export getSources
  */
 export const getSources = () => {

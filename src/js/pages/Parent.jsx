@@ -35,10 +35,14 @@ export default class Parent extends React.Component {
     };
   }
 
-  /*
-  On component mount, set a listener to the authChanged
-  event and use it to get the current user state.
-  */
+  /**
+   * This function, on component mount, sets a listener to the authChanged
+   * event and uses it to get the current user state.
+   *
+   * @function componentWillMount
+   * @returns {void}
+   * @memberof Parent
+   */
   componentWillMount() {
     newsStore.on('authChanged', this.getUser.bind(this));
     newsStore.on('authPending', this.setPendingState);
@@ -48,6 +52,14 @@ export default class Parent extends React.Component {
   }
 
   // Remove the added listener once the component is unmounted.
+  /**
+   * This function, on component mount, sets a listener to the authChanged
+   * event and uses it to get the current user state.
+   *
+   * @function componentWillMount
+   * @returns {void}
+   * @memberof Parent
+   */
   componentWillUnmount() {
     newsStore.removeListener('authChanged');
     newsStore.removeListener('authPending');
@@ -58,6 +70,7 @@ export default class Parent extends React.Component {
    *
    * @function getUser
    * @memberof Parent
+   * @returns {void}
    */
   getUser() {
     this.setState({
@@ -66,6 +79,13 @@ export default class Parent extends React.Component {
     });
   }
 
+  /**
+   * This function sets the state to of authPending to true
+   *
+   * @function setPendingState
+   * @returns {void}
+   * @memberof Parent
+   */
   setPendingState() {
     this.setState({
       authPending: true,
@@ -77,6 +97,8 @@ export default class Parent extends React.Component {
    * If the user is signed In, it routes user to Main page.
    * Else, it re-routes user to the Home page.
    *
+   * @function render
+   * @returns {object} - A React component
    **/
   render() {
     return (

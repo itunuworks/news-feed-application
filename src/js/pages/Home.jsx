@@ -8,7 +8,8 @@ import * as newsActions from '../actions/newsActions';
  *
  * @export
  * @function Home
- * @returns {JSX Component}
+ * @param {any} props - props for the component
+ * @returns {object} - A react component is rendered
  */
 const Home = props => (
   <div>

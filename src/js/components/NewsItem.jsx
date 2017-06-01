@@ -6,7 +6,9 @@ import PropTypes from 'prop-types';
  * opening the article on a fresh tab.
  *
  * @function handleClick
+ * @returns {void}
  * @param {object} e
+ * @param {string} url
  */
 export const handleClick = (e, url) => {
   e.preventDefault();
@@ -18,7 +20,7 @@ export const handleClick = (e, url) => {
  *
  * @function Articles
  * @param {any} props - Properties for the jsx component
- * @returns {JSX Component}
+ * @returns {object} - A react component
  */
 export const NewsItem = (props) => {
   const {

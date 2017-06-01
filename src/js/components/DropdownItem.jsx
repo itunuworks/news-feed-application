@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
  *
  * @function DropdownItem
  * @param {object} props - Properties for the jsx component
- * @returns {JSX Component}
+ * @returns {object} - A React Component
  */
 const DropdownItem = (props) => {
   const { value, text } = props;

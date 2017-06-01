@@ -35,7 +35,7 @@ export default class Sources extends React.Component {
 
   /**
    * Setup sourcesChanged listener
-   *
+   * @returns {void}
    * @memberof Sources
    */
   componentDidMount() {
@@ -45,6 +45,7 @@ export default class Sources extends React.Component {
   /**
    * Remove sourcesChanged listener
    *
+   * @returns {void}
    * @memberof Sources
    */
   componentWillUnmount() {
@@ -57,6 +58,7 @@ export default class Sources extends React.Component {
    * If there are currently sources in the store, the articles are fetched.
    *
    * @function getSources
+   * @returns {void}
    * @memberof Sources
    */
   getSources() {
@@ -69,6 +71,7 @@ export default class Sources extends React.Component {
    * This function triggers a fresh update of sources from the API
    *
    * @function reloadSources
+   * @returns {void}
    * @memberof Sources
    */
   reloadSources() {
@@ -80,7 +83,9 @@ export default class Sources extends React.Component {
    * based on the current selected sources and sort.
    *
    * @param {boolean} filter - false if we want to use the default filter.
+   * @param {string} sourceValue - value of the source news item to search for.
    * @function reloadArticles
+   * @returns {void}
    * @memberof Sources
    */
   reloadArticles(filter, sourceValue) {
@@ -115,7 +120,7 @@ export default class Sources extends React.Component {
    * This function renders a <div> component containing a source selection
    * dropdown and also a sort dropdown box.
    *
-   * @returns {JSX Component}
+   * @returns {object} - A React component is returned
    * @function render
    * @memberof Sources
    */

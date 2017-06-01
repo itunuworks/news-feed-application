@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
  *
  * @function Layout
  * @export
- * @param {object} props
- * @returns {JSX Component}
+ * @param {any} props
+ * @returns {object} - A React object
  */
 const Layout = props => (
   <div>

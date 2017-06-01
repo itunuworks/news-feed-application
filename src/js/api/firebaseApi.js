@@ -21,6 +21,7 @@ class Firebase {
    * This method initializes the firebase app.
    *
    * @memberof Firebase
+   * @returns {void}
    */
   initializeApp() {
     this.firebase.initializeApp({
@@ -46,6 +47,7 @@ class Firebase {
    * This function signs in a user with Google authentication
    *
    * @function signIn
+   * @returns {void}
    * @memberof Firebase
    */
   signIn() {
@@ -55,7 +57,7 @@ class Firebase {
   /**
    * This method gets the current logged in user.
    *
-   * @returns {GoogleUser} currentUser
+   * @returns {object} currentUser
    * @function getCurrentUser
    * @memberof Firebase
    */
@@ -66,6 +68,7 @@ class Firebase {
   /**
    * This method signs out the current user.
    * @function signOut
+   * @returns {void}
    * @memberof Firebase
    */
   signOut() {

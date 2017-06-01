@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'semantic-ui-react';
 
 import newsStore from '../store/newsStore';
-import NewsItem from './NewsItem';
+import NewsItemComp from './NewsItem';
 
 /**
  * This class is a React component used to render articles.
@@ -30,6 +30,7 @@ export default class Articles extends React.Component {
    * This sets up the listener for the store.
    *
    * @memberof Articles
+   * @returns {void}
    */
   componentDidMount() {
     newsStore.on('articlesChanged', this.getArticles);
@@ -39,6 +40,7 @@ export default class Articles extends React.Component {
    * This removes the listener for the store.
    *
    * @memberof Articles
+   * @returns {void}
    */
   componentWillUnmount() {
     newsStore.removeListener('articlesChanged', this.getArticles);
@@ -50,6 +52,7 @@ export default class Articles extends React.Component {
    *
    * @function getArticles
    * @memberof Articles
+   * @returns {void}
    */
   getArticles() {
     this.setState({
@@ -60,14 +63,14 @@ export default class Articles extends React.Component {
   /**
    * This function renders a Container component
    *
-   * @returns {JSX Component}
    * @function render
    * @memberof Articles
+   * @return {void}
    */
   render() {
     const { articles } = this.state;
     const articleComponents = articles.map(article => (
-      <NewsItem
+      <NewsItemComp
         author={article.author}
         title={article.title}
         description={article.description}

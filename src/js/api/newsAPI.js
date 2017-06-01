@@ -14,9 +14,10 @@ class NewsApi {
    * and passes the result to callback.
    *
    * @static
-   * @param {String} source - The String id of the news source.
-   * @param {String} sortBy - The String id of the sort method needed.
-   * @param {Function} callback - Function to be passed fetched data.
+   * @param {string} source - The String id of the news source.
+   * @param {string} sortBy - The String id of the sort method needed.
+   * @param {function} callback - Function to be passed fetched data.
+   * @returns {void}
    * @function getArticles
    * @memberof NewsApi
    */
@@ -44,6 +45,7 @@ class NewsApi {
    * @static
    * @param {function} callback - Function to be passed fetched data.
    * @function getSources
+   * @returns {void}
    * @memberof NewsApi
    */
   static getSources(callback) {

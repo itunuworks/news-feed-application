@@ -62,7 +62,8 @@ class NewsStore extends EventEmitter {
    *  Also emit an even to alert component on the completion of data resolution.
    *
    * @param {object} action - The action carried out by app.
-   * @function implementActions
+   * @method implementActions
+   * @returns {void}
    * @memberof NewsStore
    */
   implementActions(action) {

@@ -10,7 +10,7 @@ import * as newsActions from '../actions/newsActions';
  *
  * @function Main
  * @export
- * @returns (JSX)
+ * @returns {object} - A React component
  */
 const Main = () => (
   <div>

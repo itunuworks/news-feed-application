@@ -12,12 +12,10 @@ jest.mock('../../src/js/api/newsAPI');
 const dispatch = dispatcher.dispatch.mock;
 const firebaseSignIn = firebaseApi.signIn.mock;
 const firebaseSignOut = firebaseApi.signOut.mock;
+
 // Setup constants to help manage future newsApi mock functions.
 const newsApiGetSources = NewsApi.getSources;
 const newsApiGetArticles = NewsApi.getArticles;
-
-// newsApiGetSources.mockReturnValue('We are Sources');
-// newsApiGetArticles.mockReturnValue('We are articles');
 
 // Call the authStateChangedHandler function with some data.
 actions.authStateChangedHandler({ name: 'Itunuloluwa' });

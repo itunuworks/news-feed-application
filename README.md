@@ -67,6 +67,19 @@ JEST by Facebook was used to test the following parts of the code.
 - newsAPI.js
 - newsStore.js
 
+## Limitations
+This project is powered by **[News API](https://newsapi.org/)** as such the news sources are limited to those provided by the API, the sort options are limited to those made available by the API. Also, login is limited to using Google account details.
+
+## FAQs
+**Can I log in with other accounts?**
+*No, for now the app is constrained only to Google login.*
+
+**Can I use this on my mobile?**
+*Most definitely yes.*
+
+**Can I add more news sources to meet my personal needs?**
+*No, not at this time. Sources are limited to those provided by News API.*
+
 ## Contributing
 You are very welcome to grow this project and make it even more useful and complete. 
 To participate, simply fork or clone the project and make your pull requests on features you'd like to see.

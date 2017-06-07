@@ -1,10 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-// import sinon from 'sinon';
 import * as NewsItemImport from '../../src/js/components/NewsItem';
 
 const NewsItem = NewsItemImport.NewsItem;
-// const handleClick = NewsItemImport.handleClick;
 
 describe('The NewsItem Component', () => {
   const wrapper = mount(
@@ -26,12 +24,4 @@ describe('The NewsItem Component', () => {
     wrapper.setProps({ author: 'Andela Developer' });
     expect(wrapper.props().author).toBe('Andela Developer');
   });
-
-  // it('calls handleClick when an item in class header gets clicked', () => {
-  //   const spy = sinon.spy(handleClick);
-  //   console.log(spy);
-  //   wrapper.find('.header').simulate('click');
-  //   console.log(spy);
-  //   expect(spy.callCount).toEqual(1);
-  // });
 });

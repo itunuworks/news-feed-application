@@ -120,9 +120,9 @@ export default class Sources extends React.Component {
    * This function renders a <div> component containing a source selection
    * dropdown and also a sort dropdown box.
    *
-   * @returns {object} - A React component is returned
    * @function render
    * @memberof Sources
+   * @returns {jsx} - React Component
    */
   render() {
     const { sources, filters } = this.state;

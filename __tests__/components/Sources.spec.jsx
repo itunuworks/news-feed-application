@@ -22,14 +22,9 @@ describe('The Sources Component', () => {
     const getArticlesStub = sinon.stub(
       Sources.prototype, 'getArticles'
     );
-    // const newsActionGetSourcesStub = sinon.stub(
-    //   Sources.prototype.newsActions, 'getSources'
-    // );
     const wrapper = mount(<Sources />);
 
     afterEach(() => {
-      // mountSpy.reset();
-      // unmountSpy.reset();
       reloadSourcesSpy.reset();
       reloadArticlesStub.reset();
       getArticlesStub.reset();
@@ -78,15 +73,5 @@ describe('The Sources Component', () => {
         });
       });
     });
-
-    // describe('The behavior of functions when called', () => {
-    //   wrapper = mount(<Sources />);
-    //   it('should call reloadSources when reloadArticles is called', () => {
-    //     wrapper.node.reloadSources();
-    //     // wrapper.node.reloadArticles(true, 'top');
-    //     console.log(newsActionGetSourcesStub.callCount);
-    //     expect(newsActionGetSourcesStub.callCount).toBeGreaterThan(0);
-    //   });
-    // });
   });
 });

@@ -8,7 +8,7 @@ import * as newsActions from '../actions/newsActions';
  *
  * @function ListView
  * @export
- * @returns {object} - A react component
+ * @returns {jsx} - React Component
  */
 const ListView = () => (
   <div>

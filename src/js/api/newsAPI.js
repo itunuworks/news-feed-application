@@ -1,7 +1,7 @@
-import rp from 'request-promise';
+import httpRequest from 'request-promise';
 
 const host = 'https://newsapi.org/v1/';
-const apiKey = '213327409d384371851777e7c7f78dfe';// use ENV to store keys.
+const apiKey = process.env.NEWSAPI_KEY;// use ENV to store keys.
 
 /**
  * This class represents the state, properties and events of NewsApi
@@ -13,20 +13,20 @@ class NewsApi {
    * This function gets the top news articles from source
    * and passes the result to callback.
    *
+   * @function getArticles
    * @static
-   * @param {string} source - The String id of the news source.
+   * @param {string} sourceId - The String id of the news source.
    * @param {string} sortBy - The String id of the sort method needed.
    * @param {function} callback - Function to be passed fetched data.
    * @returns {void}
-   * @function getArticles
    * @memberof NewsApi
    */
-  static getArticles(source, sortBy, callback) {
-    const opts = {
+  static getArticles(sourceId, sortBy, callback) {
+    const params = {
       uri: `${host}articles`,
       qs: {
         apiKey,
-        source,
+        source: sourceId,
         sortBy,
       },
       headers: {
@@ -34,8 +34,8 @@ class NewsApi {
       },
       json: true,
     };
-    rp(opts)
-      .then(data => callback(data.articles));
+    httpRequest(params)
+      .then(payload => callback(payload.articles));
   }
 
   /**
@@ -49,7 +49,7 @@ class NewsApi {
    * @memberof NewsApi
    */
   static getSources(callback) {
-    const opts = {
+    const params = {
       uri: `${host}sources`,
       qs: {
         apiKey,
@@ -59,8 +59,8 @@ class NewsApi {
       },
       json: true,
     };
-    rp(opts)
-      .then(data => callback(data.sources));
+    httpRequest(params)
+      .then(payload => callback(payload.sources));
   }
 }
 

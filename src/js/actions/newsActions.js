@@ -34,7 +34,7 @@ export const signOut = () => {
  * @function authStateChangedHandler
  * @export authStateChangedHandler
  * @returns {void}
- * @param {object} user - The current signed in User. Undefined if signed Out.
+ * @param {GoogleUser} user - The current signed in user.
  */
 export const authStateChangedHandler = (user) => {
   dispatcher.dispatch({
@@ -52,11 +52,11 @@ export const authStateChangedHandler = (user) => {
  * @function getArticles
  * @export getArticles
  * @returns {void}
- * @param {string} source - Id of the news source.
+ * @param {string} sourceId - Id of the news source.
  * @param {string} sortBy - Type of sort required.
  */
-export const getArticles = (source, sortBy) => {
-  NewsApi.getArticles(source, sortBy, (articles) => {
+export const getArticles = (sourceId, sortBy) => {
+  NewsApi.getArticles(sourceId, sortBy, (articles) => {
     dispatcher.dispatch({
       type: 'GET_ARTICLES',
       articles,

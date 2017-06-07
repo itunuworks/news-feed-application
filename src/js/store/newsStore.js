@@ -26,7 +26,7 @@ class NewsStore extends EventEmitter {
   /**
    * This function returns the current state of the articles in store.
    *
-   * @returns {object} articles
+   * @returns {array} articles
    * @function fetchArticles
    * @memberof NewsStore
    */
@@ -37,7 +37,7 @@ class NewsStore extends EventEmitter {
   /**
    * This function returns the current state of the sources in store.
    *
-   * @returns {object} sources
+   * @returns {array} sources
    * @function fetchSources
    * @memberof NewsStore
    */
@@ -48,8 +48,8 @@ class NewsStore extends EventEmitter {
   /**
    * This function returns the current state of the user in store.
    *
-   * @returns {object} user
    * @function getUser
+   * @returns {GoogleUser} user
    * @memberof NewsStore
    */
   getUser() {

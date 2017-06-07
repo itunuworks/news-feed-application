@@ -25,19 +25,7 @@ describe('Test all stores: ', () => {
     type: 'AUTHED',
     user: { name: 'Invalid action' },
   };
-  // describe('How newsStore handles dispatched actions', () => {
-  //   describe('Its initial state should be default', () => {
-  //     it('Should have an empty array as sources.', () => {
-  //       expect(newsStore.fetchSources()).toEqual([]);
-  //     });
-  //     it('Should have an empty array as articles.', () => {
-  //       expect(newsStore.fetchArticles()).toEqual([]);
-  //     });
-  //     it('Should have its user as null', () => {
-  //       expect(newsStore.getUser()).toBeNull();
-  //     });
-  //   });
-  // });
+
   describe('On dispatch message GET_ARTICLES', () => {
     it('Should set its articles to those in the dispatch', () => {
       callback(actionGetArticles);

@@ -7,11 +7,11 @@ import PropTypes from 'prop-types';
  *
  * @function handleClick
  * @returns {void}
- * @param {object} e
+ * @param {object} event
  * @param {string} url
  */
-export const handleClick = (e, url) => {
-  e.preventDefault();
+export const handleClick = (event, url) => {
+  event.preventDefault();
   window.open(url, '_blank');
 };
 
@@ -20,7 +20,7 @@ export const handleClick = (e, url) => {
  *
  * @function Articles
  * @param {any} props - Properties for the jsx component
- * @returns {object} - A react component
+ * @returns {jsx} - React component
  */
 export const NewsItem = (props) => {
   const {
@@ -34,7 +34,9 @@ export const NewsItem = (props) => {
       </div>
       <div className="content">
         <a
-          href="#/main" className="header" onClick={e => handleClick(e, url)}
+          href="#/main" className="header" onClick={
+            event => handleClick(event, url)
+          }
         >{ title }</a>
         <div className="meta">
           <span><small>By - {author}</small></span>

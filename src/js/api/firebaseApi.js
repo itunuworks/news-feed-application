@@ -25,16 +25,17 @@ class Firebase {
    */
   initializeApp() {
     this.firebase.initializeApp({
-      apiKey: 'AIzaSyCI4rndHukYUe_FGD4Np2VIy64S9cXu_8Y',
-      authDomain: 'my-news-project-167300.firebaseapp.com',
-      databaseURL: 'https://my-news-project-167300.firebaseio.com',
-      projectId: 'my-news-project-167300',
-      storageBucket: 'my-news-project-167300.appspot.com',
-      messagingSenderId: '575633828507',
+      apiKey: process.env.FIREBASE_API_KEY || 'default',
+      authDomain: process.env.FIREBASE_AUTH_DOMAIN || 'default',
+      databaseURL: process.env.FIREBASE_DATABASE_URL || 'default',
+      projectId: process.env.FIREBASE_PROJECT_ID || 'default',
+      storageBucket: process.env.FIREBASE_STORAGE_BUCKET || 'default',
+      messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || 'default',
     });
 
     this.provider = new this.firebase.auth.GoogleAuthProvider();
     this.provider.addScope('');
+
     // Register the action authStateChangedHandler to handler auth state events.
     this.firebase.auth().onAuthStateChanged((user) => {
       authStateChangedHandler(user);
@@ -57,8 +58,8 @@ class Firebase {
   /**
    * This method gets the current logged in user.
    *
-   * @returns {object} currentUser
    * @function getCurrentUser
+   * @returns {GoogleUser} currentUser
    * @memberof Firebase
    */
   getCurrentUser() {
@@ -67,6 +68,7 @@ class Firebase {
 
   /**
    * This method signs out the current user.
+   *
    * @function signOut
    * @returns {void}
    * @memberof Firebase
@@ -74,19 +76,6 @@ class Firebase {
   signOut() {
     this.firebase.auth().signOut();
   }
-/*
-  createUserList(listName) {
-    console.log(`I am creating a new user list named ${listName}`);
-  }
-
-  addArticleToList(listName, url) {
-    console.log(`The article with url: ${url} is added to list: ${listName}`);
-  }
-
-  deleteUserList(listName) {
-    console.log(`I am deleting a new user list named ${listName}`);
-  }
-*/
 }
 
 const firebaseInstance = new Firebase();

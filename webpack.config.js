@@ -1,6 +1,7 @@
 const debug = process.env.NODE_ENV !== 'production';
 const webpack = require('webpack');
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   context: path.join(__dirname, 'src'),
@@ -36,11 +37,17 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
   },
-  plugins: debug ? [] : [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-  ],
+  plugins: debug ? [
+    new Dotenv({
+      path: './.env'
+    })] : [
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.OccurenceOrderPlugin(),
+      new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+      new Dotenv({
+        path: './.env'
+      })
+    ],
   resolve: {
     extensions: ['.js', '.jsx'],
   },

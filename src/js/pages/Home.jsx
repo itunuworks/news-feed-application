@@ -6,10 +6,10 @@ import * as newsActions from '../actions/newsActions';
 /**
  * This component holds the home page, sign in and sign out details.
  *
- * @export
  * @function Home
+ * @export
  * @param {any} props - props for the component
- * @returns {object} - A react component is rendered
+ * @returns {jsx} - React Component
  */
 const Home = props => (
   <div>

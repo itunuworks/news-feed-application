@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
-
 import newsStore from '../store/newsStore';
 import NewsItemComp from './NewsItem';
 
@@ -65,7 +64,7 @@ export default class Articles extends React.Component {
    *
    * @function render
    * @memberof Articles
-   * @return {void}
+   * @return {jsx} - React Component
    */
   render() {
     const { articles } = this.state;

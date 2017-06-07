@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
  * This Module returns an option item for a dropdownbox.
  *
  * @function DropdownItem
- * @param {object} props - Properties for the jsx component
- * @returns {object} - A React Component
+ * @param {any} props - Properties for the jsx component
+ * @returns {jsx} - React Component
  */
 const DropdownItem = (props) => {
   const { value, text } = props;

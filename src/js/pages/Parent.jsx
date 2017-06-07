@@ -5,7 +5,6 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
-
 import Home from './Home';
 import Main from './Main';
 import Layout from './Layout';
@@ -98,7 +97,7 @@ export default class Parent extends React.Component {
    * Else, it re-routes user to the Home page.
    *
    * @function render
-   * @returns {object} - A React component
+   * @returns {jsx} - React Component
    **/
   render() {
     return (

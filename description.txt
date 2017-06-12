@@ -1,3 +1,0 @@
-This is the description file with details of this project embedded
-
-[ #8992497329872]
